@@ -60,17 +60,20 @@ public class AmazonUI extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         getContentPane().add(menuBar, BorderLayout.NORTH);
         
-        JMenuItem menuItem = new JMenuItem("Electronics");
-        menuBar.add(menuItem);
+        JMenuItem menuItemElectronics = new JMenuItem("Electronics");
+        menuBar.add(menuItemElectronics);
         
-        JMenuItem menuItem_1 = new JMenuItem("Toys");
-        menuBar.add(menuItem_1);
+        JMenuItem menuItemToys = new JMenuItem("Toys");
+        menuBar.add(menuItemToys);
         
-        JMenuItem menuItem_2 = new JMenuItem("Books");
-        menuBar.add(menuItem_2);
+        JMenuItem menuItemBooks = new JMenuItem("Books");
+        menuBar.add(menuItemBooks);
         
-        JMenuItem menuItem_3 = new JMenuItem("Clothing");
-        menuBar.add(menuItem_3);
+        JMenuItem menuItemClothing = new JMenuItem("Clothing");
+        menuBar.add(menuItemClothing);
+        
+        JMenuItem mntmMyCart = new JMenuItem("My Cart ");
+        menuBar.add(mntmMyCart);
 		
 		
 	}
