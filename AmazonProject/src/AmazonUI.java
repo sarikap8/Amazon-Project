@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 
-/** Menu<br>
+/** Menu
  * Entry point for project
  * 
  * @author Sarika Sonia Lauren
@@ -49,28 +49,66 @@ public class AmazonUI extends JFrame {
 	public AmazonUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-        java.awt.Image image = new ImageIcon("APCompSci.jpeg").getImage();
-        this.setIconImage(new ImageIcon("./AP_Exam/chandu.txt").getImage());
-        
-        // Content Panel to add Label and Image
-        //https://docs.oracle.com/javase/tutorial/uiswing/components/rootpane.html
+
         Container content = getContentPane();
         content.setBackground(new Color(153, 204, 255));
         
         JMenuBar menuBar = new JMenuBar();
         getContentPane().add(menuBar, BorderLayout.NORTH);
         
-        JMenuItem menuItemElectronics = new JMenuItem("Electronics");
-        menuBar.add(menuItemElectronics);
+        JMenu menuElectronics = new JMenu("Electronics");
+
+        menuBar.add(menuElectronics);
         
-        JMenuItem menuItemToys = new JMenuItem("Toys");
-        menuBar.add(menuItemToys);
+        JMenuItem menuItemComputers = new JMenuItem("Computers");
+        menuElectronics.add(menuItemComputers);
+        menuItemComputers.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ElectronicsUI frame = new ElectronicsUI(); 
+        		frame.setVisible(true);
+        	}
+        });
+        JMenuItem menuItemTablets = new JMenuItem("Tablets");
+        menuElectronics.add(menuItemTablets);
         
-        JMenuItem menuItemBooks = new JMenuItem("Books");
-        menuBar.add(menuItemBooks);
+        JMenuItem menuItemPhones = new JMenuItem("Phones");
+        menuElectronics.add(menuItemPhones);
         
-        JMenuItem menuItemClothing = new JMenuItem("Clothing");
-        menuBar.add(menuItemClothing);
+        JMenu mnBooks = new JMenu("Books");
+        menuBar.add(mnBooks);
+        
+        JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
+        mnBooks.add(menuItemNonfiction);
+        
+        JMenuItem mntmScifi = new JMenuItem("Scifi");
+        mnBooks.add(mntmScifi);
+        
+        JMenuItem menuItemFiction = new JMenuItem("Fiction");
+        mnBooks.add(menuItemFiction);
+        
+        JMenu mnClothing = new JMenu("Clothing");
+        menuBar.add(mnClothing);
+        
+        JMenuItem menuItemSweatshirts = new JMenuItem("Sweatshirts");
+        mnClothing.add(menuItemSweatshirts);
+        
+        JMenuItem menuItemShirts = new JMenuItem("Shirts");
+        mnClothing.add(menuItemShirts);
+        
+        JMenuItem menuItemJeans = new JMenuItem("Jeans");
+        mnClothing.add(menuItemJeans);
+        
+        JMenu mnToys = new JMenu("Toys");
+        menuBar.add(mnToys);
+        
+        JMenuItem menuItemDolls = new JMenuItem("Dolls");
+        mnToys.add(menuItemDolls);
+        
+        JMenuItem menuItemTrucks = new JMenuItem("Trucks");
+        mnToys.add(menuItemTrucks);
+        
+        JMenuItem menuItemLegos = new JMenuItem("LEGOs");
+        mnToys.add(menuItemLegos);
         
         JMenuItem mntmMyCart = new JMenuItem("My Cart ");
         menuBar.add(mntmMyCart);
