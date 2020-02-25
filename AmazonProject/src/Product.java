@@ -36,10 +36,16 @@ public abstract class Product {
 		cartItems.remove(item);
 	}
 	
+	public LinkedList<String> displayCart() {
+		return cartItems;
+		
+	}
+	
 	public void checkOut() {
 		System.out.println("Purchase all items in cart?");
 		System.out.println("Total Cost: " + totalPrice);
-		System.out.println("Purchase succesful");
+		//if user clicks button "Yes"
+		//System.out.println("Purchase successful");
 	}
 
 }
