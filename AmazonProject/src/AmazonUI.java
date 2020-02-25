@@ -69,33 +69,81 @@ public class AmazonUI extends JFrame {
         	}
         });
         JMenuItem menuItemTablets = new JMenuItem("Tablets");
+        menuItemTablets.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ElectronicsUI frame = new ElectronicsUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         menuElectronics.add(menuItemTablets);
         
         JMenuItem menuItemPhones = new JMenuItem("Phones");
+        menuItemPhones.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ElectronicsUI frame = new ElectronicsUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         menuElectronics.add(menuItemPhones);
         
         JMenu mnBooks = new JMenu("Books");
         menuBar.add(mnBooks);
         
         JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
+        menuItemNonfiction.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BooksUI frame = new BooksUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnBooks.add(menuItemNonfiction);
         
         JMenuItem mntmScifi = new JMenuItem("Scifi");
+        mntmScifi.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BooksUI frame = new BooksUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnBooks.add(mntmScifi);
         
         JMenuItem menuItemFiction = new JMenuItem("Fiction");
+        menuItemFiction.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BooksUI frame = new BooksUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnBooks.add(menuItemFiction);
         
         JMenu mnClothing = new JMenu("Clothing");
         menuBar.add(mnClothing);
         
         JMenuItem menuItemSweatshirts = new JMenuItem("Sweatshirts");
+        menuItemSweatshirts.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ClothingUI frame = new ClothingUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnClothing.add(menuItemSweatshirts);
         
         JMenuItem menuItemShirts = new JMenuItem("Shirts");
+        menuItemShirts.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ClothingUI frame = new ClothingUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnClothing.add(menuItemShirts);
         
         JMenuItem menuItemJeans = new JMenuItem("Jeans");
+        menuItemJeans.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ClothingUI frame = new ClothingUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnClothing.add(menuItemJeans);
         
         JMenu mnToys = new JMenu("Toys");

@@ -74,6 +74,11 @@ public class ElectronicsUI extends JFrame {
         
         JButton btnAddtoCart = new JButton("Add to cart");
         menuBar.add(btnAddtoCart);
+        JButton button = new JButton("<");
+        menuBar.add(button);
+        
+        JButton button_1 = new JButton(">");
+        menuBar.add(button_1);
         
         txtRating = new JTextField();
         txtRating.setText("Rating");
