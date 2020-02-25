@@ -39,7 +39,7 @@ public abstract class Product {
 	public void checkOut() {
 		System.out.println("Purchase all items in cart?");
 		System.out.println("Total Cost: " + totalPrice);
-		Systme.out.println("Purchase succesful");
+		System.out.println("Purchase succesful");
 	}
 
 }
