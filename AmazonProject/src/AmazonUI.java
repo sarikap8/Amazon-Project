@@ -150,15 +150,39 @@ public class AmazonUI extends JFrame {
         menuBar.add(mnToys);
         
         JMenuItem menuItemDolls = new JMenuItem("Dolls");
+        menuItemDolls.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ToysUI frame = new ToysUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnToys.add(menuItemDolls);
         
         JMenuItem menuItemTrucks = new JMenuItem("Trucks");
+        menuItemTrucks.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ToysUI frame = new ToysUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnToys.add(menuItemTrucks);
         
         JMenuItem menuItemLegos = new JMenuItem("LEGOs");
+        menuItemLegos.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ToysUI frame = new ToysUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         mnToys.add(menuItemLegos);
         
         JMenuItem mntmMyCart = new JMenuItem("My Cart ");
+        mntmMyCart.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CartUI frame = new CartUI(); 
+        		frame.setVisible(true);
+        	}
+        });
         menuBar.add(mntmMyCart);
 		
 		
