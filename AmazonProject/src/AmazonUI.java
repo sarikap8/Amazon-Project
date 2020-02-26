@@ -11,6 +11,8 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
 //hello
 /** Menu
  * Entry point for project
@@ -25,6 +27,7 @@ public class AmazonUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTextField txtSearchForA;
 
 
 	/**
@@ -55,6 +58,9 @@ public class AmazonUI extends JFrame {
         
         JMenuBar menuBar = new JMenuBar();
         getContentPane().add(menuBar, BorderLayout.NORTH);
+        
+        JMenuItem mntmNewMenuItem = new JMenuItem("Home");
+        menuBar.add(mntmNewMenuItem);
         
         JMenu menuElectronics = new JMenu("Electronics");
 
@@ -184,8 +190,25 @@ public class AmazonUI extends JFrame {
         	}
         });
         menuBar.add(mntmMyCart);
+        
+        JLayeredPane layeredPane = new JLayeredPane();
+        getContentPane().add(layeredPane, BorderLayout.CENTER);
+        
+        txtSearchForA = new JTextField();
+        txtSearchForA.setText("Search For A Product");
+        txtSearchForA.setBounds(18, 16, 260, 26);
+        layeredPane.add(txtSearchForA);
+        txtSearchForA.setColumns(10);
+        
+        JLabel lblNewLabel = new JLabel("Current Best Seller");
+        lblNewLabel.setBounds(18, 54, 158, 167);
+        layeredPane.add(lblNewLabel);
+        
+        JLabel lblCompany_Logo = new JLabel("");
+        lblCompany_Logo.setIcon(new ImageIcon("/Users/1861657/git/Amazon-Project/AmazonProject/pics/Unknown.jpeg"));
+        lblCompany_Logo.setBounds(188, 54, 276, 167);
+        layeredPane.add(lblCompany_Logo);
 		
 		
 	}
-	
 }
