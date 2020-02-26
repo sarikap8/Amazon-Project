@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 //hello
 /** Menu
  * Entry point for project
@@ -58,6 +59,15 @@ public class AmazonUI extends JFrame {
         
         JMenuBar menuBar = new JMenuBar();
         getContentPane().add(menuBar, BorderLayout.NORTH);
+        
+        JMenuItem mntmHome = new JMenuItem("Home");
+        mntmHome.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		AmazonUI frame = new AmazonUI(); 
+        		frame.setVisible(true);
+        	}
+        });
+        menuBar.add(mntmHome);
         
         JMenu menuElectronics = new JMenu("Electronics");
 
@@ -204,8 +214,16 @@ public class AmazonUI extends JFrame {
         JLabel lblNewLabel_1 = new JLabel("");
         lblNewLabel_1.setBounds(247, 64, 177, 162);
         layeredPane.add(lblNewLabel_1);
+        
+        JButton btnSearch = new JButton("Go To Above Product");
+        btnSearch.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Search.searchAlgo(txtSearchForA.getText()); 
+        	}
+        });
+        btnSearch.setBounds(17, 42, 117, 29);
+        layeredPane.add(btnSearch);
 		
 		
 	}
-	
 }
