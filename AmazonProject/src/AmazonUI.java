@@ -11,6 +11,8 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
 //hello
 /** Menu
  * Entry point for project
@@ -25,6 +27,7 @@ public class AmazonUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTextField txtSearchForA;
 
 
 	/**
@@ -184,6 +187,23 @@ public class AmazonUI extends JFrame {
         	}
         });
         menuBar.add(mntmMyCart);
+        
+        JLayeredPane layeredPane = new JLayeredPane();
+        getContentPane().add(layeredPane, BorderLayout.CENTER);
+        
+        txtSearchForA = new JTextField();
+        txtSearchForA.setText("Search for a Product Category");
+        txtSearchForA.setBounds(17, 17, 267, 26);
+        layeredPane.add(txtSearchForA);
+        txtSearchForA.setColumns(10);
+        
+        JLabel lblNewLabel = new JLabel("#1 Best Seller right now");
+        lblNewLabel.setBounds(17, 64, 218, 162);
+        layeredPane.add(lblNewLabel);
+        
+        JLabel lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setBounds(247, 64, 177, 162);
+        layeredPane.add(lblNewLabel_1);
 		
 		
 	}
