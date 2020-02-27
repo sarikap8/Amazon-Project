@@ -59,9 +59,11 @@ public class ElectronicsUI extends JFrame {
 
         Container content = getContentPane();
         content.setBackground(new Color(153, 204, 255));
+        getContentPane().setLayout(null);
         
         JMenuBar menuBar = new JMenuBar();
-        getContentPane().add(menuBar, BorderLayout.NORTH);
+        menuBar.setBounds(0, 0, 450, 30);
+        getContentPane().add(menuBar);
         
         JMenuItem menuItemPhones = new JMenuItem("Phones");
         menuBar.add(menuItemPhones);
@@ -81,23 +83,26 @@ public class ElectronicsUI extends JFrame {
         menuBar.add(button_1);
         
         txtRating = new JTextField();
+        txtRating.setBounds(178, 82, 197, 16);
         txtRating.setText("Rating");
-        getContentPane().add(txtRating, BorderLayout.SOUTH);
+        getContentPane().add(txtRating);
         txtRating.setColumns(10);
         
         txtBatteryLife = new JTextField();
+        txtBatteryLife.setBounds(178, 110, 272, 127);
         txtBatteryLife.setText("Attributes");
-        getContentPane().add(txtBatteryLife, BorderLayout.EAST);
+        getContentPane().add(txtBatteryLife);
         txtBatteryLife.setColumns(10);
+       		
+        JLabel lblProductPhoto = new JLabel("Product Photo ");
+        lblProductPhoto.setBounds(0, 82, 145, 142);
+        lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
+        getContentPane().add(lblProductPhoto);
         
         JLabel lblProductName = new JLabel("Product Name");
-        getContentPane().add(lblProductName, BorderLayout.WEST);
+        lblProductName.setBounds(0, 47, 450, 23);
+        getContentPane().add(lblProductName);
         
-        JLabel lblProductPhoto = new JLabel("Product Photo ");
-        lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
-        getContentPane().add(lblProductPhoto, BorderLayout.CENTER);
-		
-		
 	}
 	
 }
