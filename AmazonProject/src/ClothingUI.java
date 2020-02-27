@@ -56,9 +56,11 @@ public class ClothingUI extends JFrame {
 
         Container content = getContentPane();
         content.setBackground(new Color(153, 204, 255));
+        getContentPane().setLayout(null);
         
         JMenuBar menuBar = new JMenuBar();
-        getContentPane().add(menuBar, BorderLayout.NORTH);
+        menuBar.setBounds(0, 0, 450, 30);
+        getContentPane().add(menuBar);
         
         JMenuItem menuItemSweatshirts = new JMenuItem("Sweatshirts");
         menuBar.add(menuItemSweatshirts);
@@ -80,17 +82,21 @@ public class ClothingUI extends JFrame {
         
         JLabel lblProductPhoto = new JLabel("Product Photo ");
         lblProductPhoto.setIcon(new ImageIcon("src/shirt.jpg"));
+        lblProductPhoto.setBounds(0, 82, 145, 142);
         lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
-        getContentPane().add(lblProductPhoto, BorderLayout.CENTER);
+        getContentPane().add(lblProductPhoto);
         
         JLabel lblProductName = new JLabel("Product Name");
-        getContentPane().add(lblProductName, BorderLayout.WEST);
+        lblProductName.setBounds(0, 47, 450, 23);
+        getContentPane().add(lblProductName);
         
         JLabel lblRating = new JLabel("Rating: ");
-        getContentPane().add(lblRating, BorderLayout.SOUTH);
+        lblRating.setBounds(178, 82, 197, 16);
+        getContentPane().add(lblRating);
         
         JLabel lblAttributes = new JLabel("Attributes");
-        getContentPane().add(lblAttributes, BorderLayout.EAST);
+        lblAttributes.setBounds(178, 110, 272, 127);
+        getContentPane().add(lblAttributes);
 		
 		
 	}
