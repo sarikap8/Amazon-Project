@@ -55,7 +55,7 @@ public class AmazonUI extends JFrame {
 		setBounds(100, 100, 450, 300);
 
         Container content = getContentPane();
-        content.setBackground(new Color(153, 204, 255));
+        content.setBackground(new Color(204, 204, 204));
         
         JMenuBar menuBar = new JMenuBar();
         getContentPane().add(menuBar, BorderLayout.NORTH);
@@ -202,27 +202,52 @@ public class AmazonUI extends JFrame {
         getContentPane().add(layeredPane, BorderLayout.CENTER);
         
         txtSearchForA = new JTextField();
-        txtSearchForA.setText("Search for a Product Category");
-        txtSearchForA.setBounds(17, 17, 267, 26);
+        txtSearchForA.setText("Type Product Name here: List Below");
+        txtSearchForA.setBounds(194, 50, 250, 26);
         layeredPane.add(txtSearchForA);
         txtSearchForA.setColumns(10);
         
         JLabel lblNewLabel = new JLabel("#1 Best Seller right now");
-        lblNewLabel.setBounds(17, 64, 218, 162);
+        lblNewLabel.setOpaque(true);
+        lblNewLabel.setBackground(new Color(153, 102, 102));
+        lblNewLabel.setBounds(16, 108, 166, 137);
         layeredPane.add(lblNewLabel);
         
-        JLabel lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setBounds(247, 64, 177, 162);
-        layeredPane.add(lblNewLabel_1);
+        JLabel lblLogo = new JLabel("");
+        lblLogo.setIcon(new ImageIcon("src/Unknown.jpeg"));
+        lblLogo.setBounds(16, 34, 166, 62);
+        layeredPane.add(lblLogo);
         
-        JButton btnSearch = new JButton("Go To Above Product");
+        JButton btnSearch = new JButton("Go!");
+        btnSearch.setForeground(new Color(102, 0, 0));
+        btnSearch.setBackground(new Color(102, 0, 0));
         btnSearch.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		Search.searchAlgo(txtSearchForA.getText()); 
         	}
         });
-        btnSearch.setBounds(17, 42, 117, 29);
+        btnSearch.setBounds(252, 78, 117, 29);
         layeredPane.add(btnSearch);
+        
+        JLabel lblNewLabel_1 = new JLabel("<html>Products:<br> </br>Electronics: Tablet, Computer, Phone<br>\n</br>Clothing: Sweatshirt, Jeans, Shirt<br>\n</br>Toys: Dolls, Trucks, LEGOs<br>\n</br>Books: Scifi, Fiction, Nonfiction</html>");
+        lblNewLabel_1.setBackground(new Color(204, 102, 102));
+        lblNewLabel_1.setBounds(194, 108, 250, 137);
+        lblNewLabel_1.setOpaque(true);
+        layeredPane.add(lblNewLabel_1);
+        
+        JLabel lblNewLabel_2 = new JLabel("WELCOME TO AMAZON ");
+        lblNewLabel_2.setHorizontalAlignment(JLabel.CENTER);
+        lblNewLabel_2.setOpaque(true);
+        lblNewLabel_2.setBackground(new Color(102, 0, 0));
+        lblNewLabel_2.setForeground(new Color(255, 255, 255));
+        lblNewLabel_2.setBounds(6, 6, 438, 16);
+        layeredPane.add(lblNewLabel_2);
+        
+        JLabel lblSearch = new JLabel("SEARCH: ");
+        lblSearch.setOpaque(true);
+        lblSearch.setBackground(new Color(204, 153, 153));
+        lblSearch.setBounds(287, 34, 61, 16);
+        layeredPane.add(lblSearch);
 		
 		
 	}

@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -80,6 +79,7 @@ public class ClothingUI extends JFrame {
         menuBar.add(button_1);
         
         JLabel lblProductPhoto = new JLabel("Product Photo ");
+        lblProductPhoto.setIcon(new ImageIcon("src/shirt.jpg"));
         lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
         getContentPane().add(lblProductPhoto, BorderLayout.CENTER);
         

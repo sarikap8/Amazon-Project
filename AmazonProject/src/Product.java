@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
 public abstract class Product {
 	public String name;
 	public double price;
 	public double rating;
 	public double totalPrice;
 	public String item;
-    LinkedList<String> cartItems = new LinkedList<String>(); 
+    ArrayList<String> cartItems = new ArrayList<String>(); 
 
 	
 	
@@ -36,7 +38,7 @@ public abstract class Product {
 		cartItems.remove(item);
 	}
 	
-	public LinkedList<String> displayCart() {
+	public ArrayList<String> displayCart() {
 		return cartItems;
 		
 	}
@@ -47,5 +49,4 @@ public abstract class Product {
 		//if user clicks button "Yes"
 		//System.out.println("Purchase successful");
 	}
-
 }

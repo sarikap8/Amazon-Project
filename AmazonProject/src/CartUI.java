@@ -53,7 +53,7 @@ public class CartUI extends JFrame {
 		setBounds(100, 100, 450, 300);
 
         Container content = getContentPane();
-        content.setBackground(new Color(153, 204, 255));
+        content.setBackground(new Color(204, 204, 204));
         
         JLayeredPane layeredPane = new JLayeredPane();
         getContentPane().add(layeredPane, BorderLayout.CENTER);
@@ -68,16 +68,34 @@ public class CartUI extends JFrame {
         layeredPane.add(btnCheckout);
         
         JLabel lblProductSummary = new JLabel("Products you bought: ");
+        lblProductSummary.setBackground(new Color(204, 153, 153));
         lblProductSummary.setToolTipText("");
-        lblProductSummary.setBounds(6, 6, 249, 229);
+        lblProductSummary.setBounds(16, 36, 234, 199);
+        lblProductSummary.setOpaque(true);
         layeredPane.add(lblProductSummary);
         
         JLabel lblPrices = new JLabel("Prices");
-        lblPrices.setForeground(Color.BLACK);
+        lblPrices.setLabelFor(lblPrices);
+        lblPrices.setForeground(new Color(0, 0, 0));
         layeredPane.setLayer(lblPrices, 0);
-        lblPrices.setBackground(Color.WHITE);
-        lblPrices.setBounds(260, 6, 184, 229);
+        lblPrices.setBackground(new Color(204, 102, 102));
+        lblPrices.setBounds(260, 34, 173, 171);
+        lblPrices.setOpaque(true);
         layeredPane.add(lblPrices);
+        
+        JLabel lblNewLabel = new JLabel("MY CART\n");
+        lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+        lblNewLabel.setForeground(new Color(255, 255, 255));
+        lblNewLabel.setBackground(new Color(102, 0, 0));
+        lblNewLabel.setBounds(6, 6, 438, 16);
+        lblNewLabel.setOpaque(true); 
+        layeredPane.add(lblNewLabel);
+        
+        JLabel lblTotalPrice = new JLabel("Total Price: ");
+        lblTotalPrice.setBackground(new Color(153, 102, 102));
+        lblTotalPrice.setBounds(262, 215, 171, 16);
+        layeredPane.add(lblTotalPrice);
+        lblTotalPrice.setOpaque(true);
         
        
 	}
