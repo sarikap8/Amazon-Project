@@ -30,8 +30,6 @@ public class ElectronicsUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField txtRating;
-	private JTextField txtBatteryLife;
 
 
 	/**
@@ -58,51 +56,62 @@ public class ElectronicsUI extends JFrame {
 		setBounds(100, 100, 450, 300);
 
         Container content = getContentPane();
-        content.setBackground(new Color(153, 204, 255));
+        content.setBackground(new Color(204, 204, 204));
         getContentPane().setLayout(null);
         
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBounds(0, 0, 450, 30);
         getContentPane().add(menuBar);
         
-        JMenuItem menuItemPhones = new JMenuItem("Phones");
-        menuBar.add(menuItemPhones);
-        
         JMenuItem menuItemTablets = new JMenuItem("Tablets");
         menuBar.add(menuItemTablets);
+        
+        JMenuItem menuItemPhones = new JMenuItem("Phones");
+        menuBar.add(menuItemPhones);
         
         JMenuItem menuItemComputers = new JMenuItem("Computers");
         menuBar.add(menuItemComputers);
         
         JButton btnAddtoCart = new JButton("Add to cart");
         menuBar.add(btnAddtoCart);
-        JButton button = new JButton("<");
-        menuBar.add(button);
         
-        JButton button_1 = new JButton(">");
-        menuBar.add(button_1);
-        
-        txtRating = new JTextField();
-        txtRating.setBounds(178, 82, 197, 16);
-        txtRating.setText("Rating");
-        getContentPane().add(txtRating);
-        txtRating.setColumns(10);
-        
-        txtBatteryLife = new JTextField();
-        txtBatteryLife.setBounds(178, 110, 272, 127);
-        txtBatteryLife.setText("Attributes");
-        getContentPane().add(txtBatteryLife);
-        txtBatteryLife.setColumns(10);
-       		
         JLabel lblProductPhoto = new JLabel("Product Photo ");
-        lblProductPhoto.setBounds(0, 82, 145, 142);
-        lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
+        lblProductPhoto.setBounds(6, 77, 145, 174);
         getContentPane().add(lblProductPhoto);
         
-        JLabel lblProductName = new JLabel("Product Name");
-        lblProductName.setBounds(0, 47, 450, 23);
+        JLabel lblProductName = new JLabel(" NAME: ");
+        lblProductName.setForeground(new Color(255, 255, 255));
+        lblProductName.setBackground(new Color(102, 0, 0));
+        lblProductName.setOpaque(true);
+        lblProductName.setBounds(10, 42, 434, 23);
         getContentPane().add(lblProductName);
         
+        JLabel lblRating = new JLabel("Rating: ");
+        lblRating.setBackground(new Color(153, 102, 102));
+        lblRating.setOpaque(true);
+        lblRating.setBounds(163, 67, 272, 30);
+        getContentPane().add(lblRating);
+        
+        JLabel lblAttributes = new JLabel("<html> Battery Life: <br> </br> Screen Size: <br> </br> Storage: <br> </br>");
+        lblAttributes.setOpaque(true);
+        lblAttributes.setBackground(new Color(204, 153, 153));
+        lblAttributes.setBounds(163, 104, 272, 127);
+        getContentPane().add(lblAttributes);
+        
+        JButton button = new JButton("<");
+        button.setBounds(157, 243, 75, 29);
+        getContentPane().add(button);
+        
+        JButton button_1 = new JButton(">");
+        button_1.setBounds(375, 243, 75, 29);
+        getContentPane().add(button_1);
+        
+        JLabel lblViewOtherProducts = new JLabel("View Other Products");
+        lblViewOtherProducts.setHorizontalAlignment(JLabel.CENTER);
+        lblViewOtherProducts.setBounds(234, 248, 145, 16);
+        getContentPane().add(lblViewOtherProducts);
+		
+		
 	}
 	
 }

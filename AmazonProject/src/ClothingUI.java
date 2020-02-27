@@ -81,8 +81,8 @@ public class ClothingUI extends JFrame {
         menuBar.add(button_1);
         
         JLabel lblProductPhoto = new JLabel("Product Photo ");
-        lblProductPhoto.setIcon(new ImageIcon("src/shirt.jpg"));
         lblProductPhoto.setBounds(0, 82, 145, 142);
+        lblProductPhoto.setIcon(new ImageIcon("src/shirt.jpg"));
         lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
         getContentPane().add(lblProductPhoto);
         
