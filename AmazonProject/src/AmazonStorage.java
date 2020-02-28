@@ -7,12 +7,12 @@ public class AmazonStorage {
 	ArrayList<Product> clothingList = new ArrayList<Product>();
 	ArrayList<Product> toysList = new ArrayList<Product>();
 
-	String[] bookNamesArray = { "Harry Potter", "Percy Jackson", "TestName" };
+	String[] bookNamesArray = { "Harry Potter", "Percy Jackson", "Hunger Games" };
 	String[] bookPublisherArray = { "one", "two", "three" };
-	String[] bookAuthorArray = { "JK Rowling", "Rick Riordan", "TestAuthor" };
+	String[] bookAuthorArray = { "JK Rowling", "Rick Riordan", "Suzanne Collins" };
 	int[] bookPageCountArray = { 666, 777, 888 };
-	String[] bookPhotoNameArray = { "shirt",
-			"tommy-hilfiger-pink-cotton-sweatshirt-289356-3331ba2c2b5e37dc788b89b71d6310f535378f44", "Unknown" };
+	String[] bookPhotoNameArray = { "Potter",
+			"PercyJ", "HungerGames" };
 	double[] bookRatingArray = { 5.0, 4.9, 4.8 };
 
 	AmazonStorage() {
