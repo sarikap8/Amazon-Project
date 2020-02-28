@@ -1,23 +1,21 @@
 
 public class Toys extends Product {
+	private String productAge; 
+	private String color; 
+	//private String photoName; 
+	public Toys(String recAge, String productColor, String photoName) {
+		this.productAge = recAge; 
+		this.color = productColor; 
+		this.setPhotoName(photoName); 
+	}
+	public Toys() {
+	}
+	public String getProductAge() {
+		return productAge;  
+	}
 
-	public void playDough(){
-		name = "Play Dough"; 
-		price = 2.99;
-		rating = 3.5;
-				
+	public String getColor() {
+		return color; 
 	}
-	public void car(){
-		name = "Red Toy Car"; 
-		price = 7.99;
-		rating = 2;
-				
-	}
-	public void Doll(){
-		name = "Doll"; 
-		price = 14.99;
-		rating = 4;
-				
-	}
-	
+
 }

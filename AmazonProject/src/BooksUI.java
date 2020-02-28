@@ -88,10 +88,7 @@ public class BooksUI extends JFrame {
 		JMenuItem menuItemScifi = new JMenuItem("Scifi");
 		menuBar.add(menuItemScifi);
 
-		JButton btnAddtoCart = new JButton("Add to cart");
-		menuBar.add(btnAddtoCart);
-
-		lblProductPhoto.setBounds(6, 77, 145, 174);
+		lblProductPhoto.setBounds(6, 77, 264, 334);
 		
 		getContentPane().add(lblProductPhoto);
 		
@@ -103,12 +100,12 @@ public class BooksUI extends JFrame {
 
 		lblRating.setBackground(new Color(153, 102, 102));
 		lblRating.setOpaque(true);
-		lblRating.setBounds(163, 67, 272, 30);
+		lblRating.setBounds(276, 67, 531, 30);
 		getContentPane().add(lblRating);
 
 		lblAttributes.setOpaque(true);
 		lblAttributes.setBackground(new Color(204, 153, 153));
-		lblAttributes.setBounds(163, 104, 272, 127);
+		lblAttributes.setBounds(276, 104, 531, 307);
 		getContentPane().add(lblAttributes);
 
 		JButton button = new JButton("<");
@@ -121,7 +118,7 @@ public class BooksUI extends JFrame {
 				updateUI(); 
 			}
 		});
-		button.setBounds(157, 243, 75, 29);
+		button.setBounds(0, 423, 75, 29);
 		getContentPane().add(button);
 
 		JButton button_1 = new JButton(">");
@@ -135,13 +132,17 @@ public class BooksUI extends JFrame {
 				updateUI();
 			}
 		});
-		button_1.setBounds(366, 243, 75, 29);
+		button_1.setBounds(209, 423, 75, 29);
 		getContentPane().add(button_1);
 
 		JLabel lblViewOtherProducts = new JLabel("View Other Products");
 		lblViewOtherProducts.setHorizontalAlignment(JLabel.CENTER);
-		lblViewOtherProducts.setBounds(234, 248, 145, 16);
+		lblViewOtherProducts.setBounds(77, 428, 145, 16);
 		getContentPane().add(lblViewOtherProducts);
+		
+				JButton btnAddtoCart = new JButton("Add to cart");
+				btnAddtoCart.setBounds(671, 423, 136, 41);
+				getContentPane().add(btnAddtoCart);
 		updateUI(); 
 	}
 

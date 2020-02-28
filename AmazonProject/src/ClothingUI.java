@@ -46,59 +46,82 @@ public class ClothingUI extends JFrame {
 			}
 		});
 	}
+	static JLabel lblRating = new JLabel("Rating: ");
+	static JLabel lblProductPhoto = new JLabel("Product Photo ");
+	static JLabel lblProductName = new JLabel(" NAME: ");
+	static JLabel lblAttributes = new JLabel("");
 
+
+	public ClothingUI() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 831, 551);
+
+		Container content = getContentPane();
+		content.setBackground(new Color(204, 204, 204));
+		getContentPane().setLayout(null);
+
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 807, 30);
+		getContentPane().add(menuBar);
+
+		JMenuItem menuItemFiction = new JMenuItem("Sweatshirts");
+		menuBar.add(menuItemFiction);
+
+		JMenuItem menuItemNonfiction = new JMenuItem("Shirts");
+		menuBar.add(menuItemNonfiction);
+
+		JMenuItem menuItemScifi = new JMenuItem("Jeans");
+		menuBar.add(menuItemScifi);
+
+		lblProductPhoto.setBounds(6, 77, 264, 334);
+		
+		getContentPane().add(lblProductPhoto);
+		
+		lblProductName.setForeground(new Color(255, 255, 255));
+		lblProductName.setBackground(new Color(102, 0, 0));
+		lblProductName.setOpaque(true);
+		lblProductName.setBounds(10, 42, 797, 23);
+		getContentPane().add(lblProductName);
+
+		lblRating.setBackground(new Color(153, 102, 102));
+		lblRating.setOpaque(true);
+		lblRating.setBounds(276, 67, 531, 30);
+		getContentPane().add(lblRating);
+
+		lblAttributes.setOpaque(true);
+		lblAttributes.setBackground(new Color(204, 153, 153));
+		lblAttributes.setBounds(276, 104, 531, 307);
+		getContentPane().add(lblAttributes);
+
+		JButton button = new JButton("<");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button.setBounds(0, 423, 75, 29);
+		getContentPane().add(button);
+
+		JButton button_1 = new JButton(">");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_1.setBounds(209, 423, 75, 29);
+		getContentPane().add(button_1);
+
+		JLabel lblViewOtherProducts = new JLabel("View Other Products");
+		lblViewOtherProducts.setHorizontalAlignment(JLabel.CENTER);
+		lblViewOtherProducts.setBounds(77, 428, 145, 16);
+		getContentPane().add(lblViewOtherProducts);
+		
+				JButton btnAddtoCart = new JButton("Add to cart");
+				btnAddtoCart.setBounds(671, 423, 136, 41);
+				getContentPane().add(btnAddtoCart);
+	}
 	/**
 	 * Create the frame.
 	 */
-	public ClothingUI() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
 
-        Container content = getContentPane();
-        content.setBackground(new Color(153, 204, 255));
-        getContentPane().setLayout(null);
-        
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setBounds(0, 0, 450, 30);
-        getContentPane().add(menuBar);
-        
-        JMenuItem menuItemSweatshirts = new JMenuItem("Sweatshirts");
-        menuBar.add(menuItemSweatshirts);
-        
-        JMenuItem menuItemShirts = new JMenuItem("Shirts");
-        menuBar.add(menuItemShirts);
-        
-        JMenuItem menuItemJeans = new JMenuItem("Jeans");
-        menuBar.add(menuItemJeans);
-        
-        JButton btnAddtoCart = new JButton("Add to cart");
-        menuBar.add(btnAddtoCart);
-        
-        JButton button = new JButton("<");
-        menuBar.add(button);
-        
-        JButton button_1 = new JButton(">");
-        menuBar.add(button_1);
-        
-        JLabel lblProductPhoto = new JLabel("Product Photo ");
-        lblProductPhoto.setBounds(0, 82, 145, 142);
-        lblProductPhoto.setIcon(new ImageIcon("src/shirt.jpg"));
-        lblProductPhoto.setVerticalAlignment(SwingConstants.BOTTOM);
-        getContentPane().add(lblProductPhoto);
-        
-        JLabel lblProductName = new JLabel("Product Name");
-        lblProductName.setBounds(0, 47, 450, 23);
-        getContentPane().add(lblProductName);
-        
-        JLabel lblRating = new JLabel("Rating: ");
-        lblRating.setBounds(178, 82, 197, 16);
-        getContentPane().add(lblRating);
-        
-        JLabel lblAttributes = new JLabel("Attributes");
-        lblAttributes.setBounds(178, 110, 272, 127);
-        getContentPane().add(lblAttributes);
-		
-		
-	}
 	
 }
+
