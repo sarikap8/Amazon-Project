@@ -9,27 +9,40 @@ public abstract class Product {
 	public double rating;
 	public double totalPrice;
 	public String item;
+	private String photoName; 
     ArrayList<String> cartItems = new ArrayList<String>(); 
-
-	
 	
 	public String getName() {
 		return name;		
+	}
+	public void setName(String myName) {
+		this.name = myName; 
 	}
 	
 	public double getPrice() {
 		return price;
 	}
-	
+	public void setPrice(double myPrice) {
+		this.price = myPrice; 
+	}
 	public double getTotalPrice(String item){
 		return totalPrice;
-		
 	}
 	
 	public double getRating() {
 		return rating;
 	}
-	
+	public String getPhotoName() {
+		return photoName; 
+	}
+	public void setRating(double myRating) {
+		this.rating = myRating; 
+		//return myRating; 
+	}
+	public void setPhotoName(String photo) {
+		this.photoName = photo; 
+		//return photo; 
+	}
 	public void addCart(String item) {
 		cartItems.add(item);
 	}
