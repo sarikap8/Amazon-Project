@@ -120,7 +120,7 @@ public class ClothingUI extends JFrame {
 	}
 	/**
 	 * Create the frame.
-	 */
+	 */ 
 
 	
 }
