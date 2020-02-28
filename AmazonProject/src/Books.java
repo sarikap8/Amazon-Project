@@ -4,7 +4,7 @@ public class Books extends Product {
 	private int pageCount; 
 	private String publisherName; 
 	//private String photoName; 
-	public Books(String author, String publisher, int numPages, String photoName) {
+	public Books(String author, String publisher, int numPages, String photoName, double price) {
 		this.authorName = author; 
 		this.publisherName = publisher; 
 		this.pageCount = numPages; 
