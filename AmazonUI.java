@@ -56,7 +56,7 @@ public class AmazonUI extends JFrame {
 	 */
 	public AmazonUI() {
 		curr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		productStorage = new AmazonStorage();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 831, 551);
@@ -74,6 +74,7 @@ public class AmazonUI extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		AmazonUI frame = new AmazonUI(); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
 				curr = frame;
         	}
         });
