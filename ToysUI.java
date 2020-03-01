@@ -24,15 +24,15 @@ import javax.swing.JTabbedPane;
  *
  *
  */
-public class BooksUI extends JFrame {
+public class ToysUI extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int bookIndex;
-	private static int bookLowerIndex = 0;
-	private static int bookUpperIndex = 0;
+	private static int toysIndex;
+	private static int toysLowerIndex = 0;
+	private static int toysUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -61,35 +61,35 @@ public class BooksUI extends JFrame {
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
-		Books b = AmazonUI.productStorage.getBook(bookIndex);
-		lblAttributes.setText("<html> Author: " + b.getAuthorName()
-				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br> Rating: " + b.getRating() + "</html>");
+		Toys t = AmazonUI.productStorage.getToys(toysIndex);
+		lblAttributes.setText("<html> Recommended Age: " + t.getProductAge()
+				+ "<br> </br> Color: " + t.getColor() +  "</html>");
 		lblProductPhoto
-		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + b.getPrice());
-		lblProductName.setText("NAME: " + b.getBookTitle().toUpperCase()); 
+		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getToys(toysIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + t.getPrice());
+		lblProductName.setText("NAME: "); 
 	}
 
-	public BooksUI(String typeClicked) {
+	public ToysUI(String typeClicked) {
 		//Checks what type of books should be shown
-		if (typeClicked.contentEquals("fiction"))
+		if (typeClicked.contentEquals("trucks"))
 		{
-			bookLowerIndex = 0;
-			bookUpperIndex = 2;
+			toysLowerIndex = 0;
+			toysUpperIndex = 2;
 		}
-		else if(typeClicked.contentEquals("nonfiction"))
+		else if(typeClicked.contentEquals("dolls"))
 		{
-			bookLowerIndex = 3;
-			bookUpperIndex = 5;
+			toysLowerIndex = 3;
+			toysUpperIndex = 5;
 		}
-		else if(typeClicked.contentEquals("scifi"))
+		else if(typeClicked.contentEquals("legos"))
 		{
-			bookLowerIndex = 6;
-			bookUpperIndex = 8;
+			toysLowerIndex = 6;
+			toysUpperIndex = 8;
 		}
 		
 		//setting the book index to start at the right place
-		bookIndex = bookLowerIndex;
+		toysIndex = toysLowerIndex;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,38 +115,38 @@ public class BooksUI extends JFrame {
 		menuBar.add(menuItemHome);
 		
 		
-		JMenuItem menuItemFiction = new JMenuItem("Fiction");
-		menuItemFiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemTrucks = new JMenuItem("Trucks");
+		menuItemTrucks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("fiction"); 
+				ToysUI frame = new ToysUI("trucks"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemFiction);
+		menuBar.add(menuItemTrucks);
 
-		JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
-		menuItemNonfiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemDolls = new JMenuItem("Dolls");
+		menuItemDolls.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("nonfiction"); 
+				ToysUI frame = new ToysUI("dolls"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemNonfiction);
+		menuBar.add(menuItemDolls);
 
-		JMenuItem menuItemScifi = new JMenuItem("Scifi");
-		menuItemScifi.addActionListener(new ActionListener() {
+		JMenuItem menuItemLegos = new JMenuItem("Legos");
+		menuItemLegos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("scifi"); 
+				ToysUI frame = new ToysUI("legos"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemScifi);
+		menuBar.add(menuItemLegos);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
 		
@@ -175,9 +175,9 @@ public class BooksUI extends JFrame {
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex --; 
-				if(bookIndex < bookLowerIndex) {
-					bookIndex = bookUpperIndex; 
+				toysIndex --; 
+				if(toysIndex < toysLowerIndex) {
+					toysIndex = toysUpperIndex; 
 				}
 				updateUI(); 
 			}
@@ -189,9 +189,9 @@ public class BooksUI extends JFrame {
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex++; 
-				if (bookIndex > bookUpperIndex) {
-					bookIndex = bookLowerIndex; 
+				toysIndex++; 
+				if (toysIndex > toysUpperIndex) {
+					toysIndex = toysLowerIndex; 
 				}
 				//Books c = AmazonUI.productStorage.getBook(bookIndex);
 				updateUI();

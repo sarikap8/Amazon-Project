@@ -24,15 +24,15 @@ import javax.swing.JTabbedPane;
  *
  *
  */
-public class BooksUI extends JFrame {
+public class ElectronicsUI extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int bookIndex;
-	private static int bookLowerIndex = 0;
-	private static int bookUpperIndex = 0;
+	private static int electronicsIndex;
+	private static int electronicsLowerIndex = 0;
+	private static int electronicsUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -61,35 +61,35 @@ public class BooksUI extends JFrame {
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
-		Books b = AmazonUI.productStorage.getBook(bookIndex);
-		lblAttributes.setText("<html> Author: " + b.getAuthorName()
-				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br> Rating: " + b.getRating() + "</html>");
+		Electronics e = AmazonUI.productStorage.getElectronics(electronicsIndex);
+		lblAttributes.setText("<html> Size: " + e.getProductSize()
+				+ "<br> </br> Color: " + e.getColor() +  "</html>");
 		lblProductPhoto
-		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + b.getPrice());
-		lblProductName.setText("NAME: " + b.getBookTitle().toUpperCase()); 
+		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getElectronics(electronicsIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + e.getPrice());
+		lblProductName.setText("NAME: "); 
 	}
 
-	public BooksUI(String typeClicked) {
+	public ElectronicsUI(String typeClicked) {
 		//Checks what type of books should be shown
-		if (typeClicked.contentEquals("fiction"))
+		if (typeClicked.contentEquals("computers"))
 		{
-			bookLowerIndex = 0;
-			bookUpperIndex = 2;
+			electronicsLowerIndex = 0;
+			electronicsUpperIndex = 2;
 		}
-		else if(typeClicked.contentEquals("nonfiction"))
+		else if(typeClicked.contentEquals("phones"))
 		{
-			bookLowerIndex = 3;
-			bookUpperIndex = 5;
+			electronicsLowerIndex = 3;
+			electronicsUpperIndex = 5;
 		}
-		else if(typeClicked.contentEquals("scifi"))
+		else if(typeClicked.contentEquals("tablets"))
 		{
-			bookLowerIndex = 6;
-			bookUpperIndex = 8;
+			electronicsLowerIndex = 6;
+			electronicsUpperIndex = 8;
 		}
 		
 		//setting the book index to start at the right place
-		bookIndex = bookLowerIndex;
+		electronicsIndex = electronicsLowerIndex;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,38 +115,38 @@ public class BooksUI extends JFrame {
 		menuBar.add(menuItemHome);
 		
 		
-		JMenuItem menuItemFiction = new JMenuItem("Fiction");
-		menuItemFiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemComputers = new JMenuItem("Computers");
+		menuItemComputers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("fiction"); 
+				ElectronicsUI frame = new ElectronicsUI("computers"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemFiction);
+		menuBar.add(menuItemComputers);
 
-		JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
-		menuItemNonfiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemPhones = new JMenuItem("Phones");
+		menuItemPhones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("nonfiction"); 
+				ElectronicsUI frame = new ElectronicsUI("phones"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemNonfiction);
+		menuBar.add(menuItemPhones);
 
-		JMenuItem menuItemScifi = new JMenuItem("Scifi");
-		menuItemScifi.addActionListener(new ActionListener() {
+		JMenuItem menuItemTablets = new JMenuItem("Tablets");
+		menuItemTablets.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("scifi"); 
+				ElectronicsUI frame = new ElectronicsUI("tablets"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemScifi);
+		menuBar.add(menuItemTablets);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
 		
@@ -175,9 +175,9 @@ public class BooksUI extends JFrame {
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex --; 
-				if(bookIndex < bookLowerIndex) {
-					bookIndex = bookUpperIndex; 
+				electronicsIndex --; 
+				if(electronicsIndex < electronicsLowerIndex) {
+					electronicsIndex = electronicsUpperIndex; 
 				}
 				updateUI(); 
 			}
@@ -189,9 +189,9 @@ public class BooksUI extends JFrame {
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex++; 
-				if (bookIndex > bookUpperIndex) {
-					bookIndex = bookLowerIndex; 
+				electronicsIndex++; 
+				if (electronicsIndex > electronicsUpperIndex) {
+					electronicsIndex = electronicsLowerIndex; 
 				}
 				//Books c = AmazonUI.productStorage.getBook(bookIndex);
 				updateUI();

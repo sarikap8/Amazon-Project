@@ -24,15 +24,15 @@ import javax.swing.JTabbedPane;
  *
  *
  */
-public class BooksUI extends JFrame {
+public class ClothingUI extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int bookIndex;
-	private static int bookLowerIndex = 0;
-	private static int bookUpperIndex = 0;
+	private static int clothingIndex;
+	private static int clothingLowerIndex = 0;
+	private static int clothingUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -61,35 +61,35 @@ public class BooksUI extends JFrame {
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
-		Books b = AmazonUI.productStorage.getBook(bookIndex);
-		lblAttributes.setText("<html> Author: " + b.getAuthorName()
-				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br> Rating: " + b.getRating() + "</html>");
+		Clothing c = AmazonUI.productStorage.getClothing(clothingIndex);
+		lblAttributes.setText("<html> Size: " + c.getClothingSize()
+				+ "<br> </br> Color: " + c.getClothingColor() + "<br> </br> Material: " + c.getClothingMaterial() + "</html>");
 		lblProductPhoto
-		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + b.getPrice());
-		lblProductName.setText("NAME: " + b.getBookTitle().toUpperCase()); 
+		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getClothing(clothingIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + c.getPrice());
+		lblProductName.setText("NAME: "); 
 	}
 
-	public BooksUI(String typeClicked) {
+	public ClothingUI(String typeClicked) {
 		//Checks what type of books should be shown
-		if (typeClicked.contentEquals("fiction"))
+		if (typeClicked.contentEquals("sweaters"))
 		{
-			bookLowerIndex = 0;
-			bookUpperIndex = 2;
+			clothingLowerIndex = 0;
+			clothingUpperIndex = 2;
 		}
-		else if(typeClicked.contentEquals("nonfiction"))
+		else if(typeClicked.contentEquals("jeans"))
 		{
-			bookLowerIndex = 3;
-			bookUpperIndex = 5;
+			clothingLowerIndex = 3;
+			clothingUpperIndex = 5;
 		}
-		else if(typeClicked.contentEquals("scifi"))
+		else if(typeClicked.contentEquals("shirts"))
 		{
-			bookLowerIndex = 6;
-			bookUpperIndex = 8;
+			clothingLowerIndex = 6;
+			clothingUpperIndex = 8;
 		}
 		
 		//setting the book index to start at the right place
-		bookIndex = bookLowerIndex;
+		clothingIndex = clothingLowerIndex;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,10 +115,10 @@ public class BooksUI extends JFrame {
 		menuBar.add(menuItemHome);
 		
 		
-		JMenuItem menuItemFiction = new JMenuItem("Fiction");
+		JMenuItem menuItemFiction = new JMenuItem("Sweaters");
 		menuItemFiction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("fiction"); 
+				ClothingUI frame = new ClothingUI("sweaters"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
@@ -126,10 +126,10 @@ public class BooksUI extends JFrame {
 		});
 		menuBar.add(menuItemFiction);
 
-		JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
+		JMenuItem menuItemNonfiction = new JMenuItem("Jeans");
 		menuItemNonfiction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("nonfiction"); 
+				ClothingUI frame = new ClothingUI("jeans"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
@@ -137,10 +137,10 @@ public class BooksUI extends JFrame {
 		});
 		menuBar.add(menuItemNonfiction);
 
-		JMenuItem menuItemScifi = new JMenuItem("Scifi");
+		JMenuItem menuItemScifi = new JMenuItem("Shirts");
 		menuItemScifi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BooksUI frame = new BooksUI("scifi"); 
+				ClothingUI frame = new ClothingUI("shirts"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
@@ -175,9 +175,9 @@ public class BooksUI extends JFrame {
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex --; 
-				if(bookIndex < bookLowerIndex) {
-					bookIndex = bookUpperIndex; 
+				clothingIndex --; 
+				if(clothingIndex < clothingLowerIndex) {
+					clothingIndex = clothingUpperIndex; 
 				}
 				updateUI(); 
 			}
@@ -189,9 +189,9 @@ public class BooksUI extends JFrame {
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bookIndex++; 
-				if (bookIndex > bookUpperIndex) {
-					bookIndex = bookLowerIndex; 
+				clothingIndex++; 
+				if (clothingIndex > clothingUpperIndex) {
+					clothingIndex = clothingLowerIndex; 
 				}
 				//Books c = AmazonUI.productStorage.getBook(bookIndex);
 				updateUI();
