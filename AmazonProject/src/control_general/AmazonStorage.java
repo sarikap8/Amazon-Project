@@ -1,4 +1,10 @@
+package control_general;
 import java.util.ArrayList;
+
+import control_products.Books;
+import control_products.Clothing;
+import control_products.Electronics;
+import control_products.Toys;
 public class AmazonStorage {
 	// ArrayList<Product> productList = new ArrayList<Product>();
 	ArrayList<Books> bookList = new ArrayList<Books>();
@@ -7,7 +13,7 @@ public class AmazonStorage {
 	ArrayList<Toys> toysList = new ArrayList<Toys>();
 	
 	//constructor initializes and makes a bunch of books, clothes, toys, electronics, etc. 
-	AmazonStorage() 
+	public AmazonStorage() 
 	{
 		
 		setUpBooks();

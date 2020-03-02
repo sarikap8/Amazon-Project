@@ -1,3 +1,5 @@
+package control_products;
+import control_general.Product;
 
 public class Books extends Product {
 	private String title;

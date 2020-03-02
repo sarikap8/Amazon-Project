@@ -1,3 +1,4 @@
+package view_amazon;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -8,11 +9,16 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import control_products.Electronics;
+
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JTabbedPane;
@@ -24,15 +30,15 @@ import javax.swing.JTabbedPane;
  *
  *
  */
-public class ClothingUI extends JFrame {
+public class ElectronicsUI extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int clothingIndex;
-	private static int clothingLowerIndex = 0;
-	private static int clothingUpperIndex = 0;
+	private static int electronicsIndex;
+	private static int electronicsLowerIndex = 0;
+	private static int electronicsUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -61,35 +67,35 @@ public class ClothingUI extends JFrame {
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
-		Clothing c = AmazonUI.productStorage.getClothing(clothingIndex);
-		lblAttributes.setText("<html> Size: " + c.getClothingSize()
-				+ "<br> </br> Color: " + c.getClothingColor() + "<br> </br> Material: " + c.getClothingMaterial() + "</html>");
+		Electronics e = AmazonUI.productStorage.getElectronics(electronicsIndex);
+		lblAttributes.setText("<html> Size: " + e.getProductSize()
+				+ "<br> </br> Color: " + e.getColor() +  "</html>");
 		lblProductPhoto
-		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getClothing(clothingIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + c.getPrice());
+		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getElectronics(electronicsIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + e.getPrice());
 		lblProductName.setText("NAME: "); 
 	}
 
-	public ClothingUI(String typeClicked) {
+	public ElectronicsUI(String typeClicked) {
 		//Checks what type of books should be shown
-		if (typeClicked.contentEquals("sweaters"))
+		if (typeClicked.contentEquals("computers"))
 		{
-			clothingLowerIndex = 0;
-			clothingUpperIndex = 2;
+			electronicsLowerIndex = 0;
+			electronicsUpperIndex = 2;
 		}
-		else if(typeClicked.contentEquals("jeans"))
+		else if(typeClicked.contentEquals("phones"))
 		{
-			clothingLowerIndex = 3;
-			clothingUpperIndex = 5;
+			electronicsLowerIndex = 3;
+			electronicsUpperIndex = 5;
 		}
-		else if(typeClicked.contentEquals("shirts"))
+		else if(typeClicked.contentEquals("tablets"))
 		{
-			clothingLowerIndex = 6;
-			clothingUpperIndex = 8;
+			electronicsLowerIndex = 6;
+			electronicsUpperIndex = 8;
 		}
 		
 		//setting the book index to start at the right place
-		clothingIndex = clothingLowerIndex;
+		electronicsIndex = electronicsLowerIndex;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,38 +121,38 @@ public class ClothingUI extends JFrame {
 		menuBar.add(menuItemHome);
 		
 		
-		JMenuItem menuItemFiction = new JMenuItem("Sweaters");
-		menuItemFiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemComputers = new JMenuItem("Computers");
+		menuItemComputers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClothingUI frame = new ClothingUI("sweaters"); 
+				ElectronicsUI frame = new ElectronicsUI("computers"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemFiction);
+		menuBar.add(menuItemComputers);
 
-		JMenuItem menuItemNonfiction = new JMenuItem("Jeans");
-		menuItemNonfiction.addActionListener(new ActionListener() {
+		JMenuItem menuItemPhones = new JMenuItem("Phones");
+		menuItemPhones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClothingUI frame = new ClothingUI("jeans"); 
+				ElectronicsUI frame = new ElectronicsUI("phones"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemNonfiction);
+		menuBar.add(menuItemPhones);
 
-		JMenuItem menuItemScifi = new JMenuItem("Shirts");
-		menuItemScifi.addActionListener(new ActionListener() {
+		JMenuItem menuItemTablets = new JMenuItem("Tablets");
+		menuItemTablets.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClothingUI frame = new ClothingUI("shirts"); 
+				ElectronicsUI frame = new ElectronicsUI("tablets"); 
         		frame.setVisible(true);
         		AmazonUI.curr.setVisible(false);
 				AmazonUI.curr = frame;
 			}
 		});
-		menuBar.add(menuItemScifi);
+		menuBar.add(menuItemTablets);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
 		
@@ -175,9 +181,9 @@ public class ClothingUI extends JFrame {
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clothingIndex --; 
-				if(clothingIndex < clothingLowerIndex) {
-					clothingIndex = clothingUpperIndex; 
+				electronicsIndex --; 
+				if(electronicsIndex < electronicsLowerIndex) {
+					electronicsIndex = electronicsUpperIndex; 
 				}
 				updateUI(); 
 			}
@@ -189,9 +195,9 @@ public class ClothingUI extends JFrame {
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clothingIndex++; 
-				if (clothingIndex > clothingUpperIndex) {
-					clothingIndex = clothingLowerIndex; 
+				electronicsIndex++; 
+				if (electronicsIndex > electronicsUpperIndex) {
+					electronicsIndex = electronicsLowerIndex; 
 				}
 				//Books c = AmazonUI.productStorage.getBook(bookIndex);
 				updateUI();
@@ -206,6 +212,11 @@ public class ClothingUI extends JFrame {
 		getContentPane().add(lblViewOtherProducts);
 		
 				JButton btnAddtoCart = new JButton("Add to cart");
+				btnAddtoCart.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "Okay, added to cart!");
+					}
+				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
 		updateUI(); 

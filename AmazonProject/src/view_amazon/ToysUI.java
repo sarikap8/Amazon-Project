@@ -1,3 +1,4 @@
+package view_amazon;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -8,15 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import control_products.Toys;
+
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JTabbedPane;
-
 /**
  * Menu Entry point for project
  * 
@@ -65,7 +70,7 @@ public class ToysUI extends JFrame {
 		lblAttributes.setText("<html> Recommended Age: " + t.getProductAge()
 				+ "<br> </br> Color: " + t.getColor() +  "</html>");
 		lblProductPhoto
-		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getToys(toysIndex).getPhotoName() + ".jpg"));
+		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getToys(toysIndex).getPhotoName() + ".jpg"));
 		lblRating.setText("PRICE: $" + t.getPrice());
 		lblProductName.setText("NAME: "); 
 	}
@@ -206,6 +211,11 @@ public class ToysUI extends JFrame {
 		getContentPane().add(lblViewOtherProducts);
 		
 				JButton btnAddtoCart = new JButton("Add to cart");
+				btnAddtoCart.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "Okay, added to cart!");
+					}
+				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
 		updateUI(); 

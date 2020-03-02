@@ -1,4 +1,11 @@
+package control_general;
 import javax.swing.JOptionPane;
+
+import view_amazon.AmazonUI;
+import view_amazon.BooksUI;
+import view_amazon.ClothingUI;
+import view_amazon.ElectronicsUI;
+import view_amazon.ToysUI;
 
 public class Search {
 public static void searchAlgo(String test) {

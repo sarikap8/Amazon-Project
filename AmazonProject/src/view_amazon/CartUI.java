@@ -1,3 +1,4 @@
+package view_amazon;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;

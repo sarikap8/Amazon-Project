@@ -1,3 +1,5 @@
+package control_products;
+import control_general.Product;
 
 public class Clothing extends Product {
 	private String clothingSize; 
