@@ -9,13 +9,17 @@ public class Clothing extends Product {
 		this.clothingColor = color; 
 		this.clothingMaterial = material; 
 		this.setPhotoName(photoName); 
+		this.price = price;
 	}
+	
 	public String getClothingSize() {
 		return clothingSize;  
 	}
+	
 	public String getClothingColor() {
 		return clothingColor; 
 	}
+	
 	public String getClothingMaterial() {
 		return clothingMaterial; 
 	}

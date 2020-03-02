@@ -1,25 +1,38 @@
 
 public class Books extends Product {
+	private String title;
 	private String authorName; 
 	private int pageCount; 
-	private String publisherName; 
-	//private String photoName; 
-	public Books(String author, String publisher, int numPages, String photoName, double price) {
+	private double price;
+	
+
+	public Books(String title, String author, int numPages, String photoName, double price, double rating) {
+		this.title = title;
 		this.authorName = author; 
-		this.publisherName = publisher; 
 		this.pageCount = numPages; 
 		this.setPhotoName(photoName); 
+		this.price = price;
+		this.rating = rating;
 	}
-	public Books() {
+
+	public String getBookTitle() {
+		return title;  
+
 	}
+	
 	public String getAuthorName() {
 		return authorName;  
+
 	}
-	public String getPublisherName() {
-		return publisherName; 
-	}
+	
 	public int getPageCount() {
 		return pageCount; 
 	}
 
+	public double getPrice()
+	{
+		return price;
+	}
+	
+	
 }

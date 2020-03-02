@@ -3,10 +3,11 @@ public class Toys extends Product {
 	private String productAge; 
 	private String color; 
 	//private String photoName; 
-	public Toys(String recAge, String productColor, String photoName) {
+	public Toys(String recAge, String productColor, String photoName, double price) {
 		this.productAge = recAge; 
 		this.color = productColor; 
 		this.setPhotoName(photoName); 
+		this.price = price;
 	}
 	public Toys() {
 	}

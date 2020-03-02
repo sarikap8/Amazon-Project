@@ -30,7 +30,9 @@ public class ClothingUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static int bookIndex;
+	private static int clothingIndex;
+	private static int clothingLowerIndex = 0;
+	private static int clothingUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -41,6 +43,8 @@ public class ClothingUI extends JFrame {
 				try {
 					AmazonUI frame = new AmazonUI();
 					frame.setVisible(true);
+					AmazonUI.curr.setVisible(false);
+					AmazonUI.curr = frame;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,13 +56,43 @@ public class ClothingUI extends JFrame {
 	 * Create the frame.
 	 */
 	static JLabel lblRating = new JLabel("Rating: ");
-	static JLabel lblProductPhoto = new JLabel("Product Photo ");
+	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
 
-	
-	public ClothingUI() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	public static void updateUI() {
+		Clothing c = AmazonUI.productStorage.getClothing(clothingIndex);
+		lblAttributes.setText("<html> Size: " + c.getClothingSize()
+				+ "<br> </br> Color: " + c.getClothingColor() + "<br> </br> Material: " + c.getClothingMaterial() + "</html>");
+		lblProductPhoto
+		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getClothing(clothingIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + c.getPrice());
+		lblProductName.setText("NAME: "); 
+	}
+
+	public ClothingUI(String typeClicked) {
+		//Checks what type of books should be shown
+		if (typeClicked.contentEquals("sweaters"))
+		{
+			clothingLowerIndex = 0;
+			clothingUpperIndex = 2;
+		}
+		else if(typeClicked.contentEquals("jeans"))
+		{
+			clothingLowerIndex = 3;
+			clothingUpperIndex = 5;
+		}
+		else if(typeClicked.contentEquals("shirts"))
+		{
+			clothingLowerIndex = 6;
+			clothingUpperIndex = 8;
+		}
+		
+		//setting the book index to start at the right place
+		clothingIndex = clothingLowerIndex;
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 831, 551);
 
 		Container content = getContentPane();
@@ -69,13 +103,49 @@ public class ClothingUI extends JFrame {
 		menuBar.setBounds(0, 0, 807, 30);
 		getContentPane().add(menuBar);
 
-		JMenuItem menuItemFiction = new JMenuItem("Shirts");
+		JMenuItem menuItemHome = new JMenuItem("Home");
+		menuItemHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AmazonUI frame = new AmazonUI(); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemHome);
+		
+		
+		JMenuItem menuItemFiction = new JMenuItem("Sweaters");
+		menuItemFiction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClothingUI frame = new ClothingUI("sweaters"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemFiction);
 
 		JMenuItem menuItemNonfiction = new JMenuItem("Jeans");
+		menuItemNonfiction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClothingUI frame = new ClothingUI("jeans"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemNonfiction);
 
-		JMenuItem menuItemScifi = new JMenuItem("Sweatshirts");
+		JMenuItem menuItemScifi = new JMenuItem("Shirts");
+		menuItemScifi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClothingUI frame = new ClothingUI("shirts"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemScifi);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
@@ -98,19 +168,33 @@ public class ClothingUI extends JFrame {
 		lblAttributes.setBounds(276, 104, 531, 307);
 		getContentPane().add(lblAttributes);
 
+		
+		
+		
+		//Previous Book
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 
+				clothingIndex --; 
+				if(clothingIndex < clothingLowerIndex) {
+					clothingIndex = clothingUpperIndex; 
+				}
+				updateUI(); 
 			}
 		});
 		button.setBounds(0, 423, 75, 29);
 		getContentPane().add(button);
 
+		//Next book
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				clothingIndex++; 
+				if (clothingIndex > clothingUpperIndex) {
+					clothingIndex = clothingLowerIndex; 
+				}
+				//Books c = AmazonUI.productStorage.getBook(bookIndex);
+				updateUI();
 			}
 		});
 		button_1.setBounds(209, 423, 75, 29);
@@ -124,6 +208,7 @@ public class ClothingUI extends JFrame {
 				JButton btnAddtoCart = new JButton("Add to cart");
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
+		updateUI(); 
 	}
 
 }

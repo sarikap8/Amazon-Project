@@ -30,7 +30,9 @@ public class AmazonUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField txtSearchForA;
 	public static AmazonStorage productStorage; 
-
+	public String typeClicked;
+	public static JFrame curr = new JFrame();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -40,6 +42,8 @@ public class AmazonUI extends JFrame {
 				try {
 					AmazonUI frame = new AmazonUI();
 					frame.setVisible(true);
+					curr.setVisible(false);
+					curr = frame;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,8 +55,10 @@ public class AmazonUI extends JFrame {
 	 * Create the frame.
 	 */
 	public AmazonUI() {
+		curr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		productStorage = new AmazonStorage();
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 831, 551);
 
         Container content = getContentPane();
@@ -68,6 +74,8 @@ public class AmazonUI extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		AmazonUI frame = new AmazonUI(); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         menuBar.add(mntmHome);
@@ -80,15 +88,19 @@ public class AmazonUI extends JFrame {
         menuElectronics.add(menuItemComputers);
         menuItemComputers.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ElectronicsUI frame = new ElectronicsUI(); 
+        		ElectronicsUI frame = new ElectronicsUI("computers"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         JMenuItem menuItemTablets = new JMenuItem("Tablets");
         menuItemTablets.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ElectronicsUI frame = new ElectronicsUI(); 
+        		ElectronicsUI frame = new ElectronicsUI("tablets"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         menuElectronics.add(menuItemTablets);
@@ -96,8 +108,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemPhones = new JMenuItem("Phones");
         menuItemPhones.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ElectronicsUI frame = new ElectronicsUI(); 
+        		ElectronicsUI frame = new ElectronicsUI("phones"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         menuElectronics.add(menuItemPhones);
@@ -108,8 +122,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
         menuItemNonfiction.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		BooksUI frame = new BooksUI(); 
+        		BooksUI frame = new BooksUI("nonfiction"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnBooks.add(menuItemNonfiction);
@@ -117,8 +133,10 @@ public class AmazonUI extends JFrame {
         JMenuItem mntmScifi = new JMenuItem("Scifi");
         mntmScifi.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		BooksUI frame = new BooksUI(); 
+        		BooksUI frame = new BooksUI("scifi"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnBooks.add(mntmScifi);
@@ -126,8 +144,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemFiction = new JMenuItem("Fiction");
         menuItemFiction.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		BooksUI frame = new BooksUI(); 
+        		BooksUI frame = new BooksUI("fiction"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnBooks.add(menuItemFiction);
@@ -135,11 +155,13 @@ public class AmazonUI extends JFrame {
         JMenu mnClothing = new JMenu("Clothing");
         menuBar.add(mnClothing);
         
-        JMenuItem menuItemSweatshirts = new JMenuItem("Sweatshirts");
+        JMenuItem menuItemSweatshirts = new JMenuItem("Sweaters");
         menuItemSweatshirts.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ClothingUI frame = new ClothingUI(); 
+        		ClothingUI frame = new ClothingUI("sweaters"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnClothing.add(menuItemSweatshirts);
@@ -147,8 +169,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemShirts = new JMenuItem("Shirts");
         menuItemShirts.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ClothingUI frame = new ClothingUI(); 
+        		ClothingUI frame = new ClothingUI("shirts"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnClothing.add(menuItemShirts);
@@ -156,8 +180,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemJeans = new JMenuItem("Jeans");
         menuItemJeans.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ClothingUI frame = new ClothingUI(); 
+        		ClothingUI frame = new ClothingUI("jeans"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnClothing.add(menuItemJeans);
@@ -168,8 +194,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemDolls = new JMenuItem("Dolls");
         menuItemDolls.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ToysUI frame = new ToysUI(); 
+        		ToysUI frame = new ToysUI("dolls"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnToys.add(menuItemDolls);
@@ -177,8 +205,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemTrucks = new JMenuItem("Trucks");
         menuItemTrucks.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ToysUI frame = new ToysUI(); 
+        		ToysUI frame = new ToysUI("trucks"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnToys.add(menuItemTrucks);
@@ -186,8 +216,10 @@ public class AmazonUI extends JFrame {
         JMenuItem menuItemLegos = new JMenuItem("LEGOs");
         menuItemLegos.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ToysUI frame = new ToysUI(); 
+        		ToysUI frame = new ToysUI("legos"); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         mnToys.add(menuItemLegos);
@@ -197,6 +229,8 @@ public class AmazonUI extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		CartUI frame = new CartUI(); 
         		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
         	}
         });
         menuBar.add(mntmMyCart);
@@ -216,7 +250,7 @@ public class AmazonUI extends JFrame {
         JLabel lblLogo = new JLabel("");
         lblLogo.setBounds(7, 61, 486, 219);
         getContentPane().add(lblLogo);
-        lblLogo.setIcon(new ImageIcon("src/Unknown.jpeg"));
+        lblLogo.setIcon(new ImageIcon("src/Amazon.png"));
         
         JButton btnSearch = new JButton("Go!");
         btnSearch.setBounds(653, 143, 117, 29);

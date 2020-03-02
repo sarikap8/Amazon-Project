@@ -30,6 +30,9 @@ public class ElectronicsUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static int electronicsIndex;
+	private static int electronicsLowerIndex = 0;
+	private static int electronicsUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -40,6 +43,8 @@ public class ElectronicsUI extends JFrame {
 				try {
 					AmazonUI frame = new AmazonUI();
 					frame.setVisible(true);
+					AmazonUI.curr.setVisible(false);
+					AmazonUI.curr = frame;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,37 +56,97 @@ public class ElectronicsUI extends JFrame {
 	 * Create the frame.
 	 */
 	static JLabel lblRating = new JLabel("Rating: ");
-	static JLabel lblProductPhoto = new JLabel("Product Photo ");
+	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
 
-	
-	public ElectronicsUI() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	public static void updateUI() {
+		Electronics e = AmazonUI.productStorage.getElectronics(electronicsIndex);
+		lblAttributes.setText("<html> Size: " + e.getProductSize()
+				+ "<br> </br> Color: " + e.getColor() +  "</html>");
+		lblProductPhoto
+		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getElectronics(electronicsIndex).getPhotoName() + ".jpg"));
+		lblRating.setText("PRICE: $" + e.getPrice());
+		lblProductName.setText("NAME: "); 
+	}
+
+	public ElectronicsUI(String typeClicked) {
+		//Checks what type of books should be shown
+		if (typeClicked.contentEquals("computers"))
+		{
+			electronicsLowerIndex = 0;
+			electronicsUpperIndex = 2;
+		}
+		else if(typeClicked.contentEquals("phones"))
+		{
+			electronicsLowerIndex = 3;
+			electronicsUpperIndex = 5;
+		}
+		else if(typeClicked.contentEquals("tablets"))
+		{
+			electronicsLowerIndex = 6;
+			electronicsUpperIndex = 8;
+		}
+		
+		//setting the book index to start at the right place
+		electronicsIndex = electronicsLowerIndex;
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 831, 551);
 
 		Container content = getContentPane();
 		content.setBackground(new Color(204, 204, 204));
 		getContentPane().setLayout(null);
-		
-		JLabel lblAttributes_1 = new JLabel("<html> Battery Life: <br> </br> Screen Size: <br> </br> Storage: <br> </br>");
-	    lblAttributes_1.setOpaque(true);
-	    lblAttributes_1.setBackground(new Color(204, 153, 153));
-	    lblAttributes_1.setBounds(286, 109, 272, 127);
-	    getContentPane().add(lblAttributes_1);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 807, 30);
 		getContentPane().add(menuBar);
 
-		JMenuItem menuItemFiction = new JMenuItem("Phones");
-		menuBar.add(menuItemFiction);
+		JMenuItem menuItemHome = new JMenuItem("Home");
+		menuItemHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AmazonUI frame = new AmazonUI(); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemHome);
+		
+		
+		JMenuItem menuItemComputers = new JMenuItem("Computers");
+		menuItemComputers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ElectronicsUI frame = new ElectronicsUI("computers"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemComputers);
 
-		JMenuItem menuItemNonfiction = new JMenuItem("Computers");
-		menuBar.add(menuItemNonfiction);
+		JMenuItem menuItemPhones = new JMenuItem("Phones");
+		menuItemPhones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ElectronicsUI frame = new ElectronicsUI("phones"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemPhones);
 
-		JMenuItem menuItemScifi = new JMenuItem("Battery");
-		menuBar.add(menuItemScifi);
+		JMenuItem menuItemTablets = new JMenuItem("Tablets");
+		menuItemTablets.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ElectronicsUI frame = new ElectronicsUI("tablets"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemTablets);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
 		
@@ -103,19 +168,33 @@ public class ElectronicsUI extends JFrame {
 		lblAttributes.setBounds(276, 104, 531, 307);
 		getContentPane().add(lblAttributes);
 
+		
+		
+		
+		//Previous Book
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 
+				electronicsIndex --; 
+				if(electronicsIndex < electronicsLowerIndex) {
+					electronicsIndex = electronicsUpperIndex; 
+				}
+				updateUI(); 
 			}
 		});
 		button.setBounds(0, 423, 75, 29);
 		getContentPane().add(button);
 
+		//Next book
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				electronicsIndex++; 
+				if (electronicsIndex > electronicsUpperIndex) {
+					electronicsIndex = electronicsLowerIndex; 
+				}
+				//Books c = AmazonUI.productStorage.getBook(bookIndex);
+				updateUI();
 			}
 		});
 		button_1.setBounds(209, 423, 75, 29);
@@ -129,9 +208,7 @@ public class ElectronicsUI extends JFrame {
 				JButton btnAddtoCart = new JButton("Add to cart");
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
+		updateUI(); 
 	}
 
 }
-
-
-

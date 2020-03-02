@@ -31,6 +31,8 @@ public class BooksUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static int bookIndex;
+	private static int bookLowerIndex = 0;
+	private static int bookUpperIndex = 0;
 
 	/**
 	 * Launch the application.
@@ -41,6 +43,8 @@ public class BooksUI extends JFrame {
 				try {
 					AmazonUI frame = new AmazonUI();
 					frame.setVisible(true);
+					AmazonUI.curr.setVisible(false);
+					AmazonUI.curr = frame;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,23 +56,43 @@ public class BooksUI extends JFrame {
 	 * Create the frame.
 	 */
 	static JLabel lblRating = new JLabel("Rating: ");
-	static JLabel lblProductPhoto = new JLabel("Product Photo ");
+	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
 		Books b = AmazonUI.productStorage.getBook(bookIndex);
-		lblAttributes.setText("<html> Author: " + b.getAuthorName() + "<br> </br> Publisher: " + b.getPublisherName()
-				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br>");
+		lblAttributes.setText("<html> Author: " + b.getAuthorName()
+				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br> Rating: " + b.getRating() + "</html>");
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("RATING: " + AmazonUI.productStorage.getBook(bookIndex).getRating());
-		lblProductName.setText("NAME: " + AmazonUI.productStorage.getBook(bookIndex).getName()); 
+		lblRating.setText("PRICE: $" + b.getPrice());
+		lblProductName.setText("NAME: " + b.getBookTitle().toUpperCase()); 
 	}
 
-	public BooksUI() {
-		bookIndex = 0;
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	public BooksUI(String typeClicked) {
+		//Checks what type of books should be shown
+		if (typeClicked.contentEquals("fiction"))
+		{
+			bookLowerIndex = 0;
+			bookUpperIndex = 2;
+		}
+		else if(typeClicked.contentEquals("nonfiction"))
+		{
+			bookLowerIndex = 3;
+			bookUpperIndex = 5;
+		}
+		else if(typeClicked.contentEquals("scifi"))
+		{
+			bookLowerIndex = 6;
+			bookUpperIndex = 8;
+		}
+		
+		//setting the book index to start at the right place
+		bookIndex = bookLowerIndex;
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 831, 551);
 
 		Container content = getContentPane();
@@ -79,13 +103,49 @@ public class BooksUI extends JFrame {
 		menuBar.setBounds(0, 0, 807, 30);
 		getContentPane().add(menuBar);
 
+		JMenuItem menuItemHome = new JMenuItem("Home");
+		menuItemHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AmazonUI frame = new AmazonUI(); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
+		menuBar.add(menuItemHome);
+		
+		
 		JMenuItem menuItemFiction = new JMenuItem("Fiction");
+		menuItemFiction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BooksUI frame = new BooksUI("fiction"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemFiction);
 
 		JMenuItem menuItemNonfiction = new JMenuItem("Nonfiction");
+		menuItemNonfiction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BooksUI frame = new BooksUI("nonfiction"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemNonfiction);
 
 		JMenuItem menuItemScifi = new JMenuItem("Scifi");
+		menuItemScifi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BooksUI frame = new BooksUI("scifi"); 
+        		frame.setVisible(true);
+        		AmazonUI.curr.setVisible(false);
+				AmazonUI.curr = frame;
+			}
+		});
 		menuBar.add(menuItemScifi);
 
 		lblProductPhoto.setBounds(6, 77, 264, 334);
@@ -108,12 +168,16 @@ public class BooksUI extends JFrame {
 		lblAttributes.setBounds(276, 104, 531, 307);
 		getContentPane().add(lblAttributes);
 
+		
+		
+		
+		//Previous Book
 		JButton button = new JButton("<");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bookIndex --; 
-				if(bookIndex < 0) {
-					bookIndex = 2; 
+				if(bookIndex < bookLowerIndex) {
+					bookIndex = bookUpperIndex; 
 				}
 				updateUI(); 
 			}
@@ -121,12 +185,13 @@ public class BooksUI extends JFrame {
 		button.setBounds(0, 423, 75, 29);
 		getContentPane().add(button);
 
+		//Next book
 		JButton button_1 = new JButton(">");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bookIndex++; 
-				if (bookIndex > 2) {
-					bookIndex = 0; 
+				if (bookIndex > bookUpperIndex) {
+					bookIndex = bookLowerIndex; 
 				}
 				//Books c = AmazonUI.productStorage.getBook(bookIndex);
 				updateUI();
