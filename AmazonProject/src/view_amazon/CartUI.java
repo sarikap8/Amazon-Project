@@ -18,6 +18,7 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import control_general.Cart;
 import control_general.Product;
@@ -28,6 +29,7 @@ import javax.swing.JSpinner;
 import javax.swing.JSplitPane;
 import javax.swing.JLayeredPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JTextArea;
 //checkout ui
@@ -61,7 +63,7 @@ public class CartUI extends JFrame {
 	 */
 	public CartUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 831, 551);
+		setBounds(100, 100, 476, 303);
 
         Container content = getContentPane();
         content.setBackground(new Color(204, 204, 204));
@@ -76,8 +78,7 @@ public class CartUI extends JFrame {
 
         lblProductSummary.setBounds(16, 36, 234, 35);
         lblProductSummary.setOpaque(true);
-        layeredPane.add(lblProductSummary);
-        
+        layeredPane.add(lblProductSummary);      
 
         JLabel lblNewLabel = new JLabel("MY CART\n");
         lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -114,6 +115,8 @@ public class CartUI extends JFrame {
         }
         layeredPane.add(textArea);
         
+ 
+        
         addedTotal = new JTextField(String.valueOf(totalPrice));
         addedTotal.setEditable(false);
         addedTotal.setBounds(257, 217, 167, 20);
@@ -131,6 +134,5 @@ public class CartUI extends JFrame {
         btnCheckout.setBounds(6, 243, 438, 29);
         layeredPane.add(btnCheckout);
 
-       
 	}
 }
