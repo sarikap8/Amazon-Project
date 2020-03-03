@@ -19,6 +19,7 @@ import control_general.AmazonStorage;
 import control_general.Search;
 
 import javax.swing.JButton;
+import java.awt.Font;
 //hello
 /** Menu
  * Entry point for project
@@ -249,9 +250,18 @@ public class AmazonUI extends JFrame {
         layeredPane.add(txtSearchForA);
         txtSearchForA.setText("Type Product Name here: List Below");
         txtSearchForA.setColumns(10);
-        
-        JLabel lblNewLabel = new JLabel("<html> <p>#1 Best Seller right now: LEGO Ultimate Kit</p>");
-        lblNewLabel.setBounds(29, 277, 189, 214);
+
+        JButton lblNewLabel = new JButton("#1 Best Seller right now");
+        lblNewLabel.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ClothingUI frame = new ClothingUI("shirts"); 
+        		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;
+        	}
+        });
+        lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+        lblNewLabel.setBounds(16, 304, 189, 214);
         layeredPane.add(lblNewLabel);
         lblNewLabel.setOpaque(true);
         lblNewLabel.setBackground(new Color(153, 102, 102));
@@ -263,7 +273,10 @@ public class AmazonUI extends JFrame {
         btnSearch.setBackground(new Color(102, 0, 0));
         
         JLabel lblNewLabel_1 = new JLabel("<html>Products:<br> </br>Electronics: Tablet, Computer, Phone<br>\n</br>Clothing: Sweatshirt, Jeans, Shirt<br>\n</br>Toys: Dolls, Trucks, LEGOs<br>\n</br>Books: Scifi, Fiction, Nonfiction</html>");
-        lblNewLabel_1.setBounds(449, 277, 345, 214);
+
+        lblNewLabel_1.setFont(new Font("Rockwell", Font.PLAIN, 13));
+        lblNewLabel_1.setBounds(464, 303, 345, 214);
+
         layeredPane.add(lblNewLabel_1);
         lblNewLabel_1.setBackground(new Color(204, 102, 102));
         lblNewLabel_1.setOpaque(true);
@@ -275,9 +288,19 @@ public class AmazonUI extends JFrame {
         lblNewLabel_2.setOpaque(true);
         lblNewLabel_2.setBackground(new Color(102, 0, 0));
         lblNewLabel_2.setForeground(new Color(255, 255, 255));
-        
-        JLabel lblBestSeller = new JLabel("<html><p>#2 Best Seller right now: Limited Edition Rag Doll</p>");
-        lblBestSeller.setBounds(238, 277, 201, 214);
+
+        JButton lblBestSeller = new JButton("#2 Best Seller right now");
+        lblBestSeller.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BooksUI frame = new BooksUI("fiction"); 
+        		frame.setVisible(true);
+        		curr.setVisible(false);
+				curr = frame;       		
+        	}
+        });
+        lblBestSeller.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+        lblBestSeller.setBounds(228, 304, 201, 214);
+
         layeredPane.add(lblBestSeller);
         lblBestSeller.setOpaque(true);
         lblBestSeller.setBackground(new Color(204, 153, 204));

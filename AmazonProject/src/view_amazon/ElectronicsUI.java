@@ -17,6 +17,9 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import control_general.Cart;
+import control_general.Product;
+import control_products.Books;
 import control_products.Electronics;
 
 import javax.swing.JButton;
@@ -215,6 +218,8 @@ public class ElectronicsUI extends JFrame {
 				JButton btnAddtoCart = new JButton("Add to cart");
 				btnAddtoCart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						Product aProduct = AmazonUI.productStorage.getElectronics(electronicsIndex);
+						Cart.addProduct(aProduct);
 						JOptionPane.showMessageDialog(null, "Okay, added to cart!");
 					}
 				});
