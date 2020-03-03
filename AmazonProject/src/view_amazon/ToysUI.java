@@ -221,6 +221,11 @@ public class ToysUI extends JFrame {
 				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
+				
+				JLabel lblbg = new JLabel("New label");
+				lblbg.setBounds(0, 29, 825, 500);
+				lblbg.setIcon(new ImageIcon("src/pics/test5.jpg"));
+				getContentPane().add(lblbg);
 		updateUI(); 
 	}
 

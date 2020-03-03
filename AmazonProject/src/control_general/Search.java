@@ -11,7 +11,7 @@ public class Search {
 public static void searchAlgo(String test) {
 	test = test.toLowerCase(); 
 	switch(test) {
-	case "pant": 
+	case "jeans": 
 		ClothingUI frame = new ClothingUI("jeans");
 		frame.setVisible(true);
 		AmazonUI.curr.setVisible(false);
@@ -47,19 +47,19 @@ public static void searchAlgo(String test) {
 		AmazonUI.curr.setVisible(false);
 		AmazonUI.curr = frame5;
 		break; 
-	case "laptop": 
+	case "computers": 
 		ElectronicsUI frame6 = new ElectronicsUI("computers");
 		frame6.setVisible(true);
 		AmazonUI.curr.setVisible(false);
 		AmazonUI.curr = frame6;
 		break; 
-	case "phone": 
+	case "phones": 
 		ElectronicsUI frame7 = new ElectronicsUI("phones");
 		frame7.setVisible(true);
 		AmazonUI.curr.setVisible(false);
 		AmazonUI.curr = frame7;
 		break; 
-	case "tablet": 
+	case "tablets": 
 		ElectronicsUI frame8 = new ElectronicsUI("tablets");
 		frame8.setVisible(true);
 		AmazonUI.curr.setVisible(false);
@@ -78,7 +78,7 @@ public static void searchAlgo(String test) {
 		AmazonUI.curr = frame10;
 		break; 
 	case "scifi": 
-		BooksUI frame11 = new BooksUI("Scifi");
+		BooksUI frame11 = new BooksUI("scifi");
 		frame11.setVisible(true);
 		AmazonUI.curr.setVisible(false);
 		AmazonUI.curr = frame11;

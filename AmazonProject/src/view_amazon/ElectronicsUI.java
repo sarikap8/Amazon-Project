@@ -225,6 +225,11 @@ public class ElectronicsUI extends JFrame {
 				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
+				
+				JLabel lblbg = new JLabel("New label");
+				lblbg.setBounds(0, 30, 825, 499);
+				lblbg.setIcon(new ImageIcon("src/pics/test3.jpg"));
+				getContentPane().add(lblbg);
 		updateUI(); 
 	}
 

@@ -74,7 +74,7 @@ public class BooksUI extends JFrame {
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
 		lblPrice.setText("PRICE: $" + b.getPrice());
-		//lblProductName.setText("NAME: " + b.getName().toUpperCase()); 
+		lblProductName.setText("NAME: " + b.getName().toUpperCase()); 
 	}
 
 	public BooksUI(String typeClicked) {
@@ -208,8 +208,11 @@ public class BooksUI extends JFrame {
 		getContentPane().add(button_1);
 
 		JLabel lblViewOtherProducts = new JLabel("View Other Products");
+		lblViewOtherProducts.setForeground(new Color(255, 255, 255));
+		lblViewOtherProducts.setBackground(new Color(102, 0, 0));
+		lblViewOtherProducts.setOpaque(true);
 		lblViewOtherProducts.setHorizontalAlignment(JLabel.CENTER);
-		lblViewOtherProducts.setBounds(77, 428, 145, 16);
+		lblViewOtherProducts.setBounds(67, 428, 145, 16);
 		getContentPane().add(lblViewOtherProducts);
 		
 				JButton btnAddtoCart = new JButton("Add to cart");
@@ -222,6 +225,11 @@ public class BooksUI extends JFrame {
 				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
 				getContentPane().add(btnAddtoCart);
+				
+				JLabel lblNewLabel = new JLabel("New label");
+				lblNewLabel.setBounds(0, 29, 825, 500);
+				lblNewLabel.setIcon(new ImageIcon("src/pics/bg.jpg"));
+				getContentPane().add(lblNewLabel);
 		updateUI(); 
 	}
 

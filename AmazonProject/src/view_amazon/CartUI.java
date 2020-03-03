@@ -74,7 +74,7 @@ public class CartUI extends JFrame {
         lblProductSummary.setBackground(new Color(204, 153, 153));
         lblProductSummary.setToolTipText("");
 
-        lblProductSummary.setBounds(16, 36, 234, 35);
+        lblProductSummary.setBounds(31, 45, 433, 43);
         lblProductSummary.setOpaque(true);
         layeredPane.add(lblProductSummary);
         
@@ -89,13 +89,13 @@ public class CartUI extends JFrame {
         
         JLabel lblTotalPrice = new JLabel("Total Price: ");
         lblTotalPrice.setBackground(new Color(153, 102, 102));
-        lblTotalPrice.setBounds(257, 190, 171, 16);
+        lblTotalPrice.setBounds(540, 45, 176, 51);
         layeredPane.add(lblTotalPrice);
         lblTotalPrice.setOpaque(true); 
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
-        textArea.setBounds(26, 82, 221, 152);
+        textArea.setBounds(26, 108, 438, 333);
         
         ArrayList<Product> cartItem = Cart.getCartItems();
         
@@ -116,7 +116,7 @@ public class CartUI extends JFrame {
         
         addedTotal = new JTextField(String.valueOf(totalPrice));
         addedTotal.setEditable(false);
-        addedTotal.setBounds(257, 217, 167, 20);
+        addedTotal.setBounds(540, 108, 176, 333);
         layeredPane.add(addedTotal);
         addedTotal.setColumns(10);
         
@@ -128,8 +128,13 @@ public class CartUI extends JFrame {
         		addedTotal.setText(null);
         	}
         });
-        btnCheckout.setBounds(6, 243, 438, 29);
+        btnCheckout.setBounds(232, 453, 438, 29);
         layeredPane.add(btnCheckout);
+        
+        JLabel lblbg = new JLabel("");
+        lblbg.setBounds(0, 0, 825, 529);
+        lblbg.setIcon(new ImageIcon("src/pics/test6.jpg"));
+        layeredPane.add(lblbg);
 
        
 	}
