@@ -12,15 +12,24 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import control_general.Cart;
+import control_general.Product;
+import control_products.Books;
+import control_products.Electronics;
+
 import javax.swing.JSpinner;
 import javax.swing.JSplitPane;
 import javax.swing.JLayeredPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JList;
+import javax.swing.JTextArea;
 //checkout ui
 public class CartUI extends JFrame {
 
@@ -28,6 +37,7 @@ public class CartUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTextField addedTotal;
 
 
 	/**
@@ -59,30 +69,13 @@ public class CartUI extends JFrame {
         JLayeredPane layeredPane = new JLayeredPane();
         getContentPane().add(layeredPane, BorderLayout.CENTER);
         
-        JButton btnCheckout = new JButton("CHECKOUT");
-        btnCheckout.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		JOptionPane.showMessageDialog(null, "Thanks for shopping with us");
-        	}
-        });
-        btnCheckout.setBounds(6, 243, 438, 29);
-        layeredPane.add(btnCheckout);
         
         JLabel lblProductSummary = new JLabel("Products you bought: ");
         lblProductSummary.setBackground(new Color(204, 153, 153));
         lblProductSummary.setToolTipText("");
-        lblProductSummary.setBounds(16, 36, 234, 199);
+        lblProductSummary.setBounds(16, 36, 234, 35);
         lblProductSummary.setOpaque(true);
         layeredPane.add(lblProductSummary);
-        
-        JLabel lblPrices = new JLabel("Prices");
-        lblPrices.setLabelFor(lblPrices);
-        lblPrices.setForeground(new Color(0, 0, 0));
-        layeredPane.setLayer(lblPrices, 0);
-        lblPrices.setBackground(new Color(204, 102, 102));
-        lblPrices.setBounds(260, 34, 173, 171);
-        lblPrices.setOpaque(true);
-        layeredPane.add(lblPrices);
         
         JLabel lblNewLabel = new JLabel("MY CART\n");
         lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -94,10 +87,49 @@ public class CartUI extends JFrame {
         
         JLabel lblTotalPrice = new JLabel("Total Price: ");
         lblTotalPrice.setBackground(new Color(153, 102, 102));
-        lblTotalPrice.setBounds(262, 215, 171, 16);
+        lblTotalPrice.setBounds(257, 190, 171, 16);
         layeredPane.add(lblTotalPrice);
         lblTotalPrice.setOpaque(true);
         
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setBounds(26, 82, 221, 152);
+        
+        ArrayList<Product> cartItem = Cart.getCartItems();
+        
+        int listSize = cartItem.size();
+        double totalPrice=0;
+        for(int i = 0; i <listSize; i++)
+        {
+        	Product currentProduct = (Product) cartItem.get(i);
+        	textArea.append(currentProduct.getPhotoName());
+        	textArea.append("\t");
+        	double productPrice = currentProduct.getPrice();
+        	totalPrice +=productPrice;
+
+        	textArea.append(String.valueOf(productPrice));
+        	textArea.append("\n");
+
+        }
+        layeredPane.add(textArea);
+        
+        addedTotal = new JTextField(String.valueOf(totalPrice));
+        addedTotal.setEditable(false);
+        addedTotal.setBounds(257, 217, 167, 20);
+        layeredPane.add(addedTotal);
+        addedTotal.setColumns(10);
+        
+        JButton btnCheckout = new JButton("CHECKOUT");
+        btnCheckout.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		JOptionPane.showMessageDialog(null, "Thanks for shopping with us");
+        		textArea.setText(null);
+        		addedTotal.setText(null);
+        	}
+        });
+        btnCheckout.setBounds(6, 243, 438, 29);
+        layeredPane.add(btnCheckout);
+
        
 	}
 }

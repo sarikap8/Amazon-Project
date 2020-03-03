@@ -17,6 +17,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import control_general.Cart;
 import control_products.Books;
 
 import javax.swing.JButton;
@@ -215,6 +216,8 @@ public class BooksUI extends JFrame {
 				btnAddtoCart.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(null, "Okay, added to cart!");
+						Books b = AmazonUI.productStorage.getBook(bookIndex);
+						Cart.addProduct(b);
 					}
 				});
 				btnAddtoCart.setBounds(671, 423, 136, 41);
