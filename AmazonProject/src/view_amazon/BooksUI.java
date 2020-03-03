@@ -61,7 +61,7 @@ public class BooksUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	static JLabel lblRating = new JLabel("Rating: ");
+	static JLabel lblPrice = new JLabel("Price: ");
 	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
@@ -72,8 +72,8 @@ public class BooksUI extends JFrame {
 				+ "<br> </br> Page Count: " + b.getPageCount() + "<br> </br> Rating: " + b.getRating() + "</html>");
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getBook(bookIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + b.getPrice());
-		lblProductName.setText("NAME: " + b.getBookTitle().toUpperCase()); 
+		lblPrice.setText("PRICE: $" + b.getPrice());
+		//lblProductName.setText("NAME: " + b.getName().toUpperCase()); 
 	}
 
 	public BooksUI(String typeClicked) {
@@ -164,10 +164,10 @@ public class BooksUI extends JFrame {
 		lblProductName.setBounds(10, 42, 797, 23);
 		getContentPane().add(lblProductName);
 
-		lblRating.setBackground(new Color(153, 102, 102));
-		lblRating.setOpaque(true);
-		lblRating.setBounds(276, 67, 531, 30);
-		getContentPane().add(lblRating);
+		lblPrice.setBackground(new Color(153, 102, 102));
+		lblPrice.setOpaque(true);
+		lblPrice.setBounds(276, 67, 531, 30);
+		getContentPane().add(lblPrice);
 
 		lblAttributes.setOpaque(true);
 		lblAttributes.setBackground(new Color(204, 153, 153));

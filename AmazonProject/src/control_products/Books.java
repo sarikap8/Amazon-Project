@@ -9,19 +9,13 @@ public class Books extends Product {
 	
 
 	public Books(String title, String author, int numPages, String photoName, double price, double rating) {
-		this.title = title;
+		this.setName(name);
 		this.authorName = author; 
 		this.pageCount = numPages; 
 		this.setPhotoName(photoName); 
-		this.price = price;
-		this.rating = rating;
+		this.setPrice(price);
+		this.setRating(rating);
 	}
-
-	public String getBookTitle() {
-		return title;  
-
-	}
-	
 	public String getAuthorName() {
 		return authorName;  
 

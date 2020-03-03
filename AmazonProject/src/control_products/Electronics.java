@@ -4,13 +4,17 @@ import control_general.Product;
 public class Electronics extends Product {
 	private String size; 
 	private String color; 
+	private String screenSize; 
 	//private String photoName; 
 	
-	public Electronics(String productSize, String productColor, String photoName, double price) {
+	public Electronics(String name, String productSize, String productColor, String screenSize, String photoName,  double price, double rating) {
 		this.size = productSize; 
 		this.color = productColor; 
+		this.screenSize = screenSize;
+		this.setName(name);
 		this.setPhotoName(photoName); 
-		this.price = price;
+		this.setPrice(price);
+		this.setRating(rating); 
 	}
 
 	
@@ -20,5 +24,9 @@ public class Electronics extends Product {
 
 	public String getColor() {
 		return color; 
+	}
+	
+	public String getScreenSize() {
+		return screenSize; 
 	}
 }

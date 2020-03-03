@@ -51,7 +51,7 @@ public class CartUI extends JFrame {
 	 */
 	public CartUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 831, 551);
 
         Container content = getContentPane();
         content.setBackground(new Color(204, 204, 204));
@@ -60,18 +60,20 @@ public class CartUI extends JFrame {
         getContentPane().add(layeredPane, BorderLayout.CENTER);
         
         JButton btnCheckout = new JButton("CHECKOUT");
+        btnCheckout.setForeground(new Color(255, 255, 255));
+        btnCheckout.setBackground(new Color(102, 0, 0));
         btnCheckout.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		JOptionPane.showMessageDialog(null, "Thanks for shopping with us");
         	}
         });
-        btnCheckout.setBounds(6, 243, 438, 29);
+        btnCheckout.setBounds(159, 456, 438, 29);
         layeredPane.add(btnCheckout);
         
         JLabel lblProductSummary = new JLabel("Products you bought: ");
         lblProductSummary.setBackground(new Color(204, 153, 153));
         lblProductSummary.setToolTipText("");
-        lblProductSummary.setBounds(16, 36, 234, 199);
+        lblProductSummary.setBounds(16, 36, 284, 389);
         lblProductSummary.setOpaque(true);
         layeredPane.add(lblProductSummary);
         
@@ -80,7 +82,7 @@ public class CartUI extends JFrame {
         lblPrices.setForeground(new Color(0, 0, 0));
         layeredPane.setLayer(lblPrices, 0);
         lblPrices.setBackground(new Color(204, 102, 102));
-        lblPrices.setBounds(260, 34, 173, 171);
+        lblPrices.setBounds(333, 34, 448, 244);
         lblPrices.setOpaque(true);
         layeredPane.add(lblPrices);
         
@@ -88,15 +90,25 @@ public class CartUI extends JFrame {
         lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
         lblNewLabel.setForeground(new Color(255, 255, 255));
         lblNewLabel.setBackground(new Color(102, 0, 0));
-        lblNewLabel.setBounds(6, 6, 438, 16);
+        lblNewLabel.setBounds(6, 6, 775, 16);
         lblNewLabel.setOpaque(true); 
         layeredPane.add(lblNewLabel);
         
         JLabel lblTotalPrice = new JLabel("Total Price: ");
         lblTotalPrice.setBackground(new Color(153, 102, 102));
-        lblTotalPrice.setBounds(262, 215, 171, 16);
+        lblTotalPrice.setBounds(333, 285, 448, 140);
         layeredPane.add(lblTotalPrice);
         lblTotalPrice.setOpaque(true);
+        
+        JLabel lblNewLabel_1 = new JLabel("New label");
+        lblNewLabel_1.setIcon(new ImageIcon("src/pics/test2.jpg"));
+        lblNewLabel_1.setBounds(607, 438, 153, 65);
+        layeredPane.add(lblNewLabel_1);
+        
+        JLabel lblNewLabel_2 = new JLabel("New label");
+        lblNewLabel_2.setIcon(new ImageIcon("src/pics/test.jpg"));
+        lblNewLabel_2.setBounds(6, 435, 143, 68);
+        layeredPane.add(lblNewLabel_2);
         
        
 	}

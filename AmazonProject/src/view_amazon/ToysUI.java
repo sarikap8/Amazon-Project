@@ -60,7 +60,7 @@ public class ToysUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	static JLabel lblRating = new JLabel("Rating: ");
+	static JLabel lblPrice = new JLabel("Rating: ");
 	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
@@ -68,11 +68,11 @@ public class ToysUI extends JFrame {
 	public static void updateUI() {
 		Toys t = AmazonUI.productStorage.getToys(toysIndex);
 		lblAttributes.setText("<html> Recommended Age: " + t.getProductAge()
-				+ "<br> </br> Color: " + t.getColor() +  "</html>");
+				+ "<br> </br> Color: " + t.getColor() +  "<br> </br> Rating: " + t.getRating() + "</html>");
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getToys(toysIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + t.getPrice());
-		lblProductName.setText("NAME: "); 
+		lblPrice.setText("PRICE: $" + t.getPrice());
+		lblProductName.setText("NAME: " + t.getName()); 
 	}
 
 	public ToysUI(String typeClicked) {
@@ -163,10 +163,10 @@ public class ToysUI extends JFrame {
 		lblProductName.setBounds(10, 42, 797, 23);
 		getContentPane().add(lblProductName);
 
-		lblRating.setBackground(new Color(153, 102, 102));
-		lblRating.setOpaque(true);
-		lblRating.setBounds(276, 67, 531, 30);
-		getContentPane().add(lblRating);
+		lblPrice.setBackground(new Color(153, 102, 102));
+		lblPrice.setOpaque(true);
+		lblPrice.setBounds(276, 67, 531, 30);
+		getContentPane().add(lblPrice);
 
 		lblAttributes.setOpaque(true);
 		lblAttributes.setBackground(new Color(204, 153, 153));

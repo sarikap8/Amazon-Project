@@ -61,19 +61,20 @@ public class ElectronicsUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	static JLabel lblRating = new JLabel("Rating: ");
+	static JLabel lblPrice = new JLabel("Price: ");
 	static JLabel lblProductPhoto = new JLabel("");
 	static JLabel lblProductName = new JLabel(" NAME: ");
 	static JLabel lblAttributes = new JLabel("");
 
 	public static void updateUI() {
 		Electronics e = AmazonUI.productStorage.getElectronics(electronicsIndex);
-		lblAttributes.setText("<html> Size: " + e.getProductSize()
-				+ "<br> </br> Color: " + e.getColor() +  "</html>");
+		lblAttributes.setText("<html> Storage: " + e.getProductSize()
+				+ "<br> </br> Color: " + e.getColor() + 
+				"<br> </br> Screen Size: " + e.getScreenSize() + "<br> </br>Rating: " + e.getRating() + "</html>");
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getElectronics(electronicsIndex).getPhotoName() + ".jpg"));
-		lblRating.setText("PRICE: $" + e.getPrice());
-		lblProductName.setText("NAME: "); 
+		lblPrice.setText("PRICE: $" + e.getPrice());
+		lblProductName.setText("NAME: " + e.getName()); 
 	}
 
 	public ElectronicsUI(String typeClicked) {
@@ -164,10 +165,10 @@ public class ElectronicsUI extends JFrame {
 		lblProductName.setBounds(10, 42, 797, 23);
 		getContentPane().add(lblProductName);
 
-		lblRating.setBackground(new Color(153, 102, 102));
-		lblRating.setOpaque(true);
-		lblRating.setBounds(276, 67, 531, 30);
-		getContentPane().add(lblRating);
+		lblPrice.setBackground(new Color(153, 102, 102));
+		lblPrice.setOpaque(true);
+		lblPrice.setBounds(276, 67, 531, 30);
+		getContentPane().add(lblPrice);
 
 		lblAttributes.setOpaque(true);
 		lblAttributes.setBackground(new Color(204, 153, 153));

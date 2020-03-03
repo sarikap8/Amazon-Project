@@ -6,12 +6,14 @@ public class Clothing extends Product {
 	private String clothingColor; 
 	private String clothingMaterial; 
 	//private String photoName; 
-	public Clothing(String size, String color, String material, String photoName, double price) {
+	public Clothing(String name, String size, String color, String material, String photoName, double price, double rating) {
 		this.clothingSize = size; 
 		this.clothingColor = color; 
 		this.clothingMaterial = material; 
+		this.setName(name);
 		this.setPhotoName(photoName); 
-		this.price = price;
+		this.setPrice(price);
+		this.setRating(rating); 
 	}
 	
 	public String getClothingSize() {

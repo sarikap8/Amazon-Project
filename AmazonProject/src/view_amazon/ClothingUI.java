@@ -69,11 +69,13 @@ public class ClothingUI extends JFrame {
 	public static void updateUI() {
 		Clothing c = AmazonUI.productStorage.getClothing(clothingIndex);
 		lblAttributes.setText("<html> Size: " + c.getClothingSize()
-				+ "<br> </br> Color: " + c.getClothingColor() + "<br> </br> Material: " + c.getClothingMaterial() + "</html>");
+				+ "<br> </br> Color: " + c.getClothingColor() +
+				"<br> </br> Material: " + c.getClothingMaterial() + 
+				"<br> </br> Rating: " + c.getRating() + "</html>");
 		lblProductPhoto
 		.setIcon(new ImageIcon("src/pics/" + AmazonUI.productStorage.getClothing(clothingIndex).getPhotoName() + ".jpg"));
 		lblRating.setText("PRICE: $" + c.getPrice());
-		lblProductName.setText("NAME: "); 
+		lblProductName.setText("NAME: " + c.getName()); 
 	}
 
 	public ClothingUI(String typeClicked) {
