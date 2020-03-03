@@ -106,7 +106,6 @@ public class CartUI extends JFrame {
         	textArea.append("\t");
         	double productPrice = currentProduct.getPrice();
         	totalPrice +=productPrice;
-
         	textArea.append(String.valueOf(productPrice));
         	textArea.append("\n");
 
