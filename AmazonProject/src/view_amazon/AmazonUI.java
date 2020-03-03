@@ -245,7 +245,7 @@ public class AmazonUI extends JFrame {
         layeredPane.setBounds(0, 0, 831, 551);
         getContentPane().add(layeredPane);
         
-        txtSearchForA = new JTextField();
+        txtSearchForA = new JTextField(); //test
         txtSearchForA.setBounds(502, 190, 259, 32);
         layeredPane.add(txtSearchForA);
         txtSearchForA.setText("Type Product Name here: List Below");
