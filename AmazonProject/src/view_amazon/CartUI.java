@@ -63,7 +63,7 @@ public class CartUI extends JFrame {
 	 */
 	public CartUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 476, 303);
+		setBounds(100, 100, 831, 551);
 
         Container content = getContentPane();
         content.setBackground(new Color(204, 204, 204));
